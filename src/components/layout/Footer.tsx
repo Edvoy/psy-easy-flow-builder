@@ -4,20 +4,20 @@ import { Facebook, Instagram, Twitter } from "lucide-react";
 export function Footer() {
   const footerLinks = {
     particuliers: [
-      { label: "Pack premium", href: "/particuliers#premium" },
-      { label: "Réseaux partenaires", href: "/partenaires" },
-      { label: "Plateformes partenaires", href: "/partenaires" },
-      { label: "Praticiens partenaires", href: "/partenaires" },
+      { label: "Pack Premium", href: "/particuliers#pack-premium" },
+      { label: "Réseaux partenaires", href: "/particuliers#reseaux-partenaires" },
+      { label: "Plateformes partenaires", href: "/particuliers#plateformes-partenaires" },
+      { label: "Praticiens partenaires", href: "/particuliers#praticiens-partenaires" },
     ],
     entreprises: [
       { label: "Évaluation d'équipe", href: "/entreprises#evaluation" },
       { label: "Rapport professionnel", href: "/entreprises#rapport" },
-      { label: "Test gratuit", href: "/test" },
+      { label: "Test gratuit", href: "/entreprises#test-gratuit" },
     ],
     pros: [
-      { label: "Bases scientifiques", href: "/bases-scientifiques" },
-      { label: "Avantages", href: "/avantages-pros" },
-      { label: "Estimation des prix", href: "/estimation-prix" },
+      { label: "Bases scientifiques", href: "/pros#bases-scientifiques" },
+      { label: "Avantages", href: "/pros#avantages" },
+      { label: "Estimation des prix", href: "/pros#estimation-prix" },
     ],
     aides: [
       { label: "FAQ", href: "/faq" },
