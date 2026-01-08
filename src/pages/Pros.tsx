@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { TempProNav } from "@/components/TempProNav";
 import { Button } from "@/components/ui/button";
 import { Check, Users, FileText, Shield, ArrowRight, Brain, FlaskConical, BookOpen, Award, Clock, Zap, Calculator } from "lucide-react";
 import { useState } from "react";
@@ -30,6 +31,7 @@ export default function Pros() {
 
   return (
     <Layout>
+      <TempProNav />
       {/* Hero */}
       <section className="container py-16 md:py-24">
         <div className="text-center max-w-3xl mx-auto">
