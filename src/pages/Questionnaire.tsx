@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { Slider } from "@/components/ui/slider";
 import { ArrowLeft, ArrowRight, Save } from "lucide-react";
 
 interface Question {
@@ -105,16 +106,18 @@ export default function Questionnaire() {
     }
   };
 
+  const getSliderLabel = (value: number) => {
+    const labels = ["Pas du tout d'accord", "Plutôt pas d'accord", "Neutre", "Plutôt d'accord", "Tout à fait d'accord"];
+    return labels[value - 1] || "";
+  };
+
   return (
     <Layout hideFooter>
       <div className="min-h-[calc(100vh-4rem)] flex flex-col">
         {/* Progress Header */}
         <div className="border-b-2 border-foreground bg-background sticky top-16 z-40">
           <div className="container py-4">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium">
-                Question {currentQuestion + 1} sur {totalQuestions}
-              </span>
+            <div className="flex items-center justify-end mb-2">
               <Button variant="ghost" size="sm" className="gap-2">
                 <Save className="h-4 w-4" />
                 Sauvegarder
@@ -132,40 +135,37 @@ export default function Questionnaire() {
               <h2 className="text-2xl md:text-3xl font-bold">{question.text}</h2>
             </div>
 
-            {/* Options */}
-            <div className="space-y-3">
-              {question.options.map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => handleAnswer(option.value)}
-                  className={`w-full p-4 text-left border-2 rounded-lg transition-all ${
-                    answers[question.id] === option.value
-                      ? "border-foreground bg-foreground text-background"
-                      : "border-border hover:border-foreground"
-                  }`}
-                >
-                  <div className="flex items-center gap-4">
-                    <div
-                      className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
-                        answers[question.id] === option.value
-                          ? "border-background"
-                          : "border-foreground"
-                      }`}
-                    >
-                      {answers[question.id] === option.value && (
-                        <div className="w-3 h-3 rounded-full bg-background" />
-                      )}
-                    </div>
-                    <span className="font-medium">{option.label}</span>
-                  </div>
-                </button>
-              ))}
+            {/* Slider */}
+            <div className="space-y-6 py-8">
+              <div className="px-4">
+                <Slider
+                  value={[answers[question.id] || 3]}
+                  onValueChange={(value) => handleAnswer(value[0])}
+                  min={1}
+                  max={5}
+                  step={1}
+                  className="w-full"
+                />
+              </div>
+              
+              {/* Slider Labels */}
+              <div className="flex justify-between text-sm text-muted-foreground px-2">
+                <span>Pas du tout d'accord</span>
+                <span>Tout à fait d'accord</span>
+              </div>
+              
+              {/* Current Value Display */}
+              <div className="text-center">
+                <span className="inline-block px-4 py-2 bg-foreground text-background rounded-full font-medium">
+                  {getSliderLabel(answers[question.id] || 3)}
+                </span>
+              </div>
             </div>
 
             {/* Error message */}
             {showError && (
               <div className="text-center text-destructive text-sm animate-fade-in">
-                Veuillez sélectionner une réponse pour continuer.
+                Veuillez positionner le curseur pour continuer.
               </div>
             )}
 
