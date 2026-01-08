@@ -22,6 +22,11 @@ import PremiumSuccess from "./pages/PremiumSuccess";
 import Rapport from "./pages/Rapport";
 import Achats from "./pages/Achats";
 import Partenaires from "./pages/Partenaires";
+import EntrepriseDashboard from "./pages/entreprise/Dashboard";
+import EntrepriseEquipe from "./pages/entreprise/Equipe";
+import EntrepriseInvitations from "./pages/entreprise/Invitations";
+import EntrepriseRessources from "./pages/entreprise/Ressources";
+import EntrepriseParametres from "./pages/entreprise/Parametres";
 import Philosophie from "./pages/Philosophie";
 import Equipe from "./pages/Equipe";
 import Recherche from "./pages/Recherche";
@@ -62,6 +67,11 @@ const App = () => (
           <Route path="/rapport" element={<Rapport />} />
           <Route path="/achats" element={<Achats />} />
           <Route path="/partenaires" element={<Partenaires />} />
+          <Route path="/entreprise/dashboard" element={<EntrepriseDashboard />} />
+          <Route path="/entreprise/equipe" element={<EntrepriseEquipe />} />
+          <Route path="/entreprise/invitations" element={<EntrepriseInvitations />} />
+          <Route path="/entreprise/ressources" element={<EntrepriseRessources />} />
+          <Route path="/entreprise/parametres" element={<EntrepriseParametres />} />
           <Route path="/philosophie" element={<Philosophie />} />
           <Route path="/equipe" element={<Equipe />} />
           <Route path="/recherche" element={<Recherche />} />
