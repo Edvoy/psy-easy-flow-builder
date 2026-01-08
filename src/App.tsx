@@ -15,10 +15,12 @@ import Pzy from "./pages/Pzy";
 import Parametres from "./pages/Parametres";
 import Profil from "./pages/Profil";
 import Particuliers from "./pages/Particuliers";
+import Pros from "./pages/Pros";
 import Entreprises from "./pages/Entreprises";
 import Premium from "./pages/Premium";
 import PremiumSuccess from "./pages/PremiumSuccess";
 import Rapport from "./pages/Rapport";
+import Achats from "./pages/Achats";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,10 +44,12 @@ const App = () => (
           <Route path="/parametres" element={<Parametres />} />
           <Route path="/profil" element={<Profil />} />
           <Route path="/particuliers" element={<Particuliers />} />
+          <Route path="/pros" element={<Pros />} />
           <Route path="/entreprises" element={<Entreprises />} />
           <Route path="/premium" element={<Premium />} />
           <Route path="/premium/success" element={<PremiumSuccess />} />
           <Route path="/rapport" element={<Rapport />} />
+          <Route path="/achats" element={<Achats />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
