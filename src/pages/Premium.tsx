@@ -38,13 +38,13 @@ export default function Premium() {
               
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between">
-                  <span>Pack Premium</span>
-                  <span className="font-bold">29,00€</span>
+                  <span>Rapport complet</span>
+                  <span className="font-bold">12,00€</span>
                 </div>
                 <hr className="border-border" />
                 <div className="flex justify-between text-lg font-bold">
                   <span>Total</span>
-                  <span>29,00€</span>
+                  <span>12,00€</span>
                 </div>
               </div>
 
@@ -127,7 +127,7 @@ export default function Premium() {
                   ) : (
                     <>
                       <Lock className="h-4 w-4" />
-                      Payer 29,00€
+                      Payer 12,00€
                     </>
                   )}
                 </Button>
