@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
+import { TempEntrepriseNav } from "@/components/TempEntrepriseNav";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -29,6 +30,7 @@ export default function Entreprises() {
 
   return (
     <Layout>
+      <TempEntrepriseNav />
       {/* Hero Section */}
       <section className="container py-16 md:py-24">
         <div className="grid md:grid-cols-2 gap-12 items-center">
