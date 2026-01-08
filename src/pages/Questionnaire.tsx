@@ -154,12 +154,6 @@ export default function Questionnaire() {
                 <span>Tout à fait d'accord</span>
               </div>
               
-              {/* Current Value Display */}
-              <div className="text-center">
-                <span className="inline-block px-4 py-2 bg-foreground text-background rounded-full font-medium">
-                  {getSliderLabel(answers[question.id] || 3)}
-                </span>
-              </div>
             </div>
 
             {/* Error message */}
