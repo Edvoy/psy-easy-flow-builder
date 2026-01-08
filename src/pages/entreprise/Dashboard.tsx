@@ -1,4 +1,5 @@
 import { EntrepriseLayout } from "@/components/layout/EntrepriseLayout";
+import { TempEntrepriseNav } from "@/components/TempEntrepriseNav";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -73,7 +74,8 @@ const priorityStyles = {
 export default function EntrepriseDashboard() {
   return (
     <EntrepriseLayout>
-      <div className="p-6 md:p-8 space-y-8">
+      <TempEntrepriseNav />
+      <div className="p-6 md:p-8 space-y-8 pb-24">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
