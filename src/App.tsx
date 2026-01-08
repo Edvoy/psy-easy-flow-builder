@@ -21,6 +21,7 @@ import Premium from "./pages/Premium";
 import PremiumSuccess from "./pages/PremiumSuccess";
 import Rapport from "./pages/Rapport";
 import Achats from "./pages/Achats";
+import Partenaires from "./pages/Partenaires";
 import Philosophie from "./pages/Philosophie";
 import Equipe from "./pages/Equipe";
 import Recherche from "./pages/Recherche";
@@ -60,6 +61,7 @@ const App = () => (
           <Route path="/premium/success" element={<PremiumSuccess />} />
           <Route path="/rapport" element={<Rapport />} />
           <Route path="/achats" element={<Achats />} />
+          <Route path="/partenaires" element={<Partenaires />} />
           <Route path="/philosophie" element={<Philosophie />} />
           <Route path="/equipe" element={<Equipe />} />
           <Route path="/recherche" element={<Recherche />} />
