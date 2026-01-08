@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Search, Globe, User, Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -8,6 +8,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 
 interface HeaderProps {
   isLoggedIn?: boolean;
@@ -15,72 +22,104 @@ interface HeaderProps {
 
 export function Header({ isLoggedIn = false }: HeaderProps) {
   const location = useLocation();
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [currentLang, setCurrentLang] = useState("FR");
 
   const isActive = (path: string) => location.pathname.startsWith(path);
 
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/articles?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchOpen(false);
+      setSearchQuery("");
+    }
+  };
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b-2 border-foreground bg-background">
-      <div className="container flex h-16 items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 text-xl font-bold">
-          Psy-easy
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1">
-          {/* Se tester / Mon profil */}
-          <Link
-            to={isLoggedIn ? "/profil" : "/test"}
-            className={`nav-link ${isActive(isLoggedIn ? "/profil" : "/test") ? "nav-link-active" : ""}`}
-          >
-            {isLoggedIn ? "Mon profil" : "Se tester"}
+    <>
+      <header className="sticky top-0 z-50 w-full border-b-2 border-foreground bg-background">
+        <div className="container flex h-16 items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2 text-xl font-bold">
+            Psy-easy
           </Link>
 
-          {/* Comprendre - no dropdown arrow */}
-          <Link
-            to="/articles"
-            className={`nav-link ${isActive("/articles") ? "nav-link-active" : ""}`}
-          >
-            Comprendre
-          </Link>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-1">
+            {/* Se tester / Mon profil */}
+            <Link
+              to={isLoggedIn ? "/profil" : "/test"}
+              className={`nav-link ${isActive(isLoggedIn ? "/profil" : "/test") ? "nav-link-active" : ""}`}
+            >
+              {isLoggedIn ? "Mon profil" : "Se tester"}
+            </Link>
 
-          {/* Valoriser - with dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button
-                className={`nav-link ${
-                  isActive("/particuliers") || isActive("/pros") || isActive("/entreprises")
-                    ? "nav-link-active"
-                    : ""
-                }`}
-              >
-                Valoriser
-                <span className="ml-1">▾</span>
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="w-48">
-              <DropdownMenuItem asChild>
-                <Link to="/particuliers">Particuliers</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/pros">Pros</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/entreprises">Entreprises</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </nav>
+            {/* Comprendre - no dropdown arrow */}
+            <Link
+              to="/articles"
+              className={`nav-link ${isActive("/articles") ? "nav-link-active" : ""}`}
+            >
+              Comprendre
+            </Link>
 
-        {/* Right side actions */}
-        <div className="hidden md:flex items-center gap-3">
-          <button className="p-2 hover:bg-accent rounded-md transition-colors" aria-label="Rechercher">
-            <Search className="h-5 w-5" />
-          </button>
-          <button className="p-2 hover:bg-accent rounded-md transition-colors" aria-label="Langue">
-            <Globe className="h-5 w-5" />
-          </button>
+            {/* Valoriser - with dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  className={`nav-link ${
+                    isActive("/particuliers") || isActive("/pros") || isActive("/entreprises")
+                      ? "nav-link-active"
+                      : ""
+                  }`}
+                >
+                  Valoriser
+                  <span className="ml-1">▾</span>
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-48">
+                <DropdownMenuItem asChild>
+                  <Link to="/particuliers">Particuliers</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/pros">Pros</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/entreprises">Entreprises</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </nav>
+
+          {/* Right side actions */}
+          <div className="hidden md:flex items-center gap-3">
+            <button 
+              onClick={() => setSearchOpen(true)}
+              className="p-2 hover:bg-accent rounded-md transition-colors" 
+              aria-label="Rechercher"
+            >
+              <Search className="h-5 w-5" />
+            </button>
+            
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="p-2 hover:bg-accent rounded-md transition-colors flex items-center gap-1" aria-label="Langue">
+                  <Globe className="h-5 w-5" />
+                  <span className="text-sm font-medium">{currentLang}</span>
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setCurrentLang("FR")}>
+                  🇫🇷 Français
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setCurrentLang("EN")}>
+                  🇬🇧 English
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
           {isLoggedIn ? (
             <DropdownMenu>
@@ -212,5 +251,30 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
         </div>
       )}
     </header>
+
+    {/* Search Dialog */}
+    <Dialog open={searchOpen} onOpenChange={setSearchOpen}>
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle>Rechercher</DialogTitle>
+        </DialogHeader>
+        <form onSubmit={handleSearch} className="space-y-4">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder="Rechercher dans les articles..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10"
+              autoFocus
+            />
+          </div>
+          <Button type="submit" className="w-full">
+            Rechercher
+          </Button>
+        </form>
+      </DialogContent>
+    </Dialog>
+    </>
   );
 }
