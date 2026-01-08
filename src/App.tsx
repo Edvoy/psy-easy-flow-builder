@@ -28,9 +28,6 @@ import Roadmap from "./pages/Roadmap";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import Temoignages from "./pages/Temoignages";
-import BasesScientifiques from "./pages/BasesScientifiques";
-import AvantagesPros from "./pages/AvantagesPros";
-import EstimationPrix from "./pages/EstimationPrix";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -67,9 +64,6 @@ const App = () => (
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/temoignages" element={<Temoignages />} />
-          <Route path="/bases-scientifiques" element={<BasesScientifiques />} />
-          <Route path="/avantages-pros" element={<AvantagesPros />} />
-          <Route path="/estimation-prix" element={<EstimationPrix />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
