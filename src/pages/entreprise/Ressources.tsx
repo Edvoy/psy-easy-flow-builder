@@ -1,4 +1,5 @@
 import { EntrepriseLayout } from "@/components/layout/EntrepriseLayout";
+import { TempEntrepriseNav } from "@/components/TempEntrepriseNav";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -90,7 +91,8 @@ const webinars = [
 export default function EntrepriseRessources() {
   return (
     <EntrepriseLayout>
-      <div className="p-6 md:p-8 space-y-8">
+      <TempEntrepriseNav />
+      <div className="p-6 md:p-8 space-y-8 pb-24">
         {/* Header */}
         <div>
           <h1 className="text-3xl font-bold mb-2">Ressources</h1>

@@ -1,4 +1,5 @@
 import { EntrepriseLayout } from "@/components/layout/EntrepriseLayout";
+import { TempEntrepriseNav } from "@/components/TempEntrepriseNav";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -19,7 +20,8 @@ import {
 export default function EntrepriseParametres() {
   return (
     <EntrepriseLayout>
-      <div className="p-6 md:p-8 space-y-8 max-w-4xl">
+      <TempEntrepriseNav />
+      <div className="p-6 md:p-8 space-y-8 max-w-4xl pb-24">
         {/* Header */}
         <div>
           <h1 className="text-3xl font-bold mb-2">Paramètres</h1>
