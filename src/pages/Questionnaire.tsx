@@ -114,16 +114,15 @@ export default function Questionnaire() {
   return (
     <Layout hideFooter>
       <div className="min-h-[calc(100vh-4rem)] flex flex-col">
-        {/* Progress Header */}
+        {/* Header */}
         <div className="border-b-2 border-foreground bg-background sticky top-16 z-40">
           <div className="container py-4">
-            <div className="flex items-center justify-end mb-2">
+            <div className="flex items-center justify-end">
               <Button variant="ghost" size="sm" className="gap-2">
                 <Save className="h-4 w-4" />
                 Sauvegarder
               </Button>
             </div>
-            <Progress value={progress} className="h-2" />
           </div>
         </div>
 
