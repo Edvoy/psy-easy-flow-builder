@@ -17,12 +17,6 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navItems = [
-    { label: "Se tester", href: "/test" },
-    { label: "Comprendre", href: "/articles", hasDropdown: true },
-    { label: "Valoriser", href: "/particuliers", hasDropdown: true },
-  ];
-
   const isActive = (path: string) => location.pathname.startsWith(path);
 
   return (
@@ -35,16 +29,48 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-1">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              to={item.href}
-              className={`nav-link ${isActive(item.href) ? "nav-link-active" : ""}`}
-            >
-              {item.label}
-              {item.hasDropdown && <span className="ml-1">▾</span>}
-            </Link>
-          ))}
+          {/* Se tester / Mon profil */}
+          <Link
+            to={isLoggedIn ? "/profil" : "/test"}
+            className={`nav-link ${isActive(isLoggedIn ? "/profil" : "/test") ? "nav-link-active" : ""}`}
+          >
+            {isLoggedIn ? "Mon profil" : "Se tester"}
+          </Link>
+
+          {/* Comprendre - no dropdown arrow */}
+          <Link
+            to="/articles"
+            className={`nav-link ${isActive("/articles") ? "nav-link-active" : ""}`}
+          >
+            Comprendre
+          </Link>
+
+          {/* Valoriser - with dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                className={`nav-link ${
+                  isActive("/particuliers") || isActive("/pros") || isActive("/entreprises")
+                    ? "nav-link-active"
+                    : ""
+                }`}
+              >
+                Valoriser
+                <span className="ml-1">▾</span>
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-48">
+              <DropdownMenuItem asChild>
+                <Link to="/particuliers">Particuliers</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/pros">Pros</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/entreprises">Entreprises</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </nav>
 
         {/* Right side actions */}
@@ -69,6 +95,9 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link to="/pzy">P-zy</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/achats">Mes achats</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link to="/parametres">Paramètres</Link>
@@ -105,16 +134,46 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
       {mobileMenuOpen && (
         <div className="md:hidden border-t-2 border-foreground bg-background animate-slide-up">
           <nav className="container py-4 flex flex-col gap-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className="py-3 px-4 border-2 border-foreground rounded-md font-medium hover:bg-accent transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            <Link
+              to={isLoggedIn ? "/profil" : "/test"}
+              className="py-3 px-4 border-2 border-foreground rounded-md font-medium hover:bg-accent transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {isLoggedIn ? "Mon profil" : "Se tester"}
+            </Link>
+            <Link
+              to="/articles"
+              className="py-3 px-4 border-2 border-foreground rounded-md font-medium hover:bg-accent transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Comprendre
+            </Link>
+            <div className="py-3 px-4 border-2 border-foreground rounded-md">
+              <span className="font-medium">Valoriser</span>
+              <div className="mt-2 space-y-1">
+                <Link
+                  to="/particuliers"
+                  className="block py-2 px-3 hover:bg-accent rounded-md transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Particuliers
+                </Link>
+                <Link
+                  to="/pros"
+                  className="block py-2 px-3 hover:bg-accent rounded-md transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Pros
+                </Link>
+                <Link
+                  to="/entreprises"
+                  className="block py-2 px-3 hover:bg-accent rounded-md transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Entreprises
+                </Link>
+              </div>
+            </div>
             <hr className="my-2 border-border" />
             {isLoggedIn ? (
               <>
