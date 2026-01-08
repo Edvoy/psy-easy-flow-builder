@@ -2,95 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Psy-Easy Wireframe Design System - High-fidelity wireframe style */
 
 @layer base {
   :root {
+    /* Wireframe color palette - grayscale focus */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Dark for wireframe emphasis */
+    --primary: 0 0% 10%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Light gray */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted elements */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Subtle gray */
+    --accent: 0 0% 92%;
+    --accent-foreground: 0 0% 10%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders - Strong for wireframe */
+    --border: 0 0% 80%;
+    --border-strong: 0 0% 10%;
+    --input: 0 0% 85%;
+    --ring: 0 0% 10%;
 
     --radius: 0.5rem;
 
+    /* Wireframe specific */
+    --wireframe-line: 0 0% 10%;
+    --wireframe-placeholder: 0 0% 60%;
+    --wireframe-highlight: 0 0% 95%;
+
+    /* Status colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 10%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    /* Sidebar */
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
+    --sidebar-foreground: 0 0% 25%;
+    --sidebar-primary: 0 0% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 0 0% 95%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 0% 10%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 10%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 95%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 0 0% 20%;
+    --border-strong: 0 0% 95%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 85%;
+
+    --wireframe-line: 0 0% 95%;
+    --wireframe-placeholder: 0 0% 50%;
+    --wireframe-highlight: 0 0% 12%;
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 0 0% 95%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 0 0% 85%;
   }
 }
 
@@ -100,6 +119,89 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Wireframe focus states for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Wireframe card style */
+  .wireframe-card {
+    @apply border-2 border-foreground bg-card p-4 rounded-lg;
+  }
+
+  /* Wireframe placeholder box */
+  .wireframe-placeholder {
+    @apply bg-muted border-2 border-dashed border-muted-foreground/50 rounded flex items-center justify-center text-muted-foreground;
+  }
+
+  /* Progress indicator */
+  .progress-step {
+    @apply w-8 h-8 rounded-full border-2 border-foreground flex items-center justify-center text-sm font-medium;
+  }
+
+  .progress-step-active {
+    @apply bg-foreground text-background;
+  }
+
+  .progress-step-completed {
+    @apply bg-foreground text-background;
+  }
+
+  /* Disclaimer box */
+  .disclaimer-box {
+    @apply border-2 border-foreground/30 bg-muted/50 p-4 rounded-lg text-sm text-muted-foreground;
+  }
+
+  /* Chat bubble */
+  .chat-bubble {
+    @apply rounded-2xl p-4 max-w-[80%];
+  }
+
+  .chat-bubble-user {
+    @apply bg-foreground text-background ml-auto;
+  }
+
+  .chat-bubble-bot {
+    @apply bg-muted border border-border;
+  }
+
+  /* Quick action chips */
+  .quick-chip {
+    @apply px-4 py-2 border-2 border-foreground rounded-full text-sm font-medium hover:bg-foreground hover:text-background transition-colors cursor-pointer;
+  }
+
+  /* Result card */
+  .result-card {
+    @apply border-2 border-foreground rounded-lg p-6 bg-card hover:bg-accent transition-colors;
+  }
+
+  /* Navigation link */
+  .nav-link {
+    @apply text-sm font-medium text-foreground/80 hover:text-foreground transition-colors px-3 py-2;
+  }
+
+  .nav-link-active {
+    @apply bg-foreground text-background rounded-md;
+  }
+}
+
+@layer utilities {
+  /* Wireframe utilities */
+  .border-wireframe {
+    border-color: hsl(var(--wireframe-line));
+  }
+
+  .text-placeholder {
+    color: hsl(var(--wireframe-placeholder));
+  }
+
+  .bg-highlight {
+    background-color: hsl(var(--wireframe-highlight));
   }
 }
