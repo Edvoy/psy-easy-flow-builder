@@ -148,7 +148,7 @@ export default function Results() {
           </div>
         </div>
 
-        {/* Synthesis Section */}
+        {/* Synthesis Section - FREE */}
         <div className="max-w-4xl mx-auto mb-12">
           <h2 className="text-2xl font-bold mb-6 text-center">Synthèse de votre profil</h2>
           
@@ -165,89 +165,123 @@ export default function Results() {
               ))}
             </div>
             
-            {/* Profile Summary */}
-            <div className="text-center p-6 bg-accent/30 rounded-lg">
-              <h3 className="font-bold text-lg mb-3">Un profil riche et nuancé</h3>
+            {/* Profile Summary - More detailed */}
+            <div className="p-6 bg-accent/30 rounded-lg">
+              <h3 className="font-bold text-lg mb-3 text-center">Un profil riche et nuancé</h3>
+              <p className="text-muted-foreground mb-4">
+                Vos résultats révèlent un profil cognitif marqué par des spécificités qui font votre singularité. 
+                Cette combinaison unique associe des traits de haut potentiel intellectuel avec une énergie mentale 
+                particulièrement vive, offrant un potentiel précieux qui gagne à être compris et accompagné.
+              </p>
+              <p className="text-muted-foreground mb-4">
+                Ce type de profil se caractérise souvent par une grande curiosité, une capacité à faire des liens 
+                entre des idées apparemment éloignées, et une sensibilité qui peut être à la fois une richesse 
+                et parfois une source de questionnements.
+              </p>
               <p className="text-muted-foreground">
-                Vos résultats révèlent un profil marqué par des spécificités qui font votre singularité. 
-                Cette combinaison unique offre un potentiel précieux qui gagne à être compris et accompagné 
-                de manière adaptée.
+                Pour aller plus loin et découvrir en détail vos forces, vos défis et des recommandations 
+                personnalisées, le rapport complet vous attend ci-dessous.
               </p>
             </div>
           </div>
-
-          {/* Detailed Results */}
-          <h3 className="text-xl font-bold mb-4">Comprendre chaque dimension</h3>
-          <div className="space-y-4 mb-12">
-            {resultAxes.map((axis) => (
-              <div key={axis.id} className="wireframe-card">
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <h4 className="text-lg font-bold">{axis.name}</h4>
-                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mt-1 ${getLevelColor(axis.level)}`}>
-                      {axis.score}/100 — {axis.level.charAt(0).toUpperCase() + axis.level.slice(1)}
-                    </span>
-                  </div>
-                </div>
-                <p className="text-muted-foreground">{axis.description}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
-        {/* Strengths & Challenges */}
-        <div className="max-w-4xl mx-auto mb-12">
-          <h2 className="text-2xl font-bold mb-6 text-center">Vos forces et vos défis</h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Strengths */}
-            <div className="wireframe-card">
-              <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                <Sparkles className="h-5 w-5" />
-                Vos points forts
-              </h3>
-              <div className="space-y-4">
-                {strengths.map((strength, i) => (
-                  <div key={i} className="flex gap-3">
-                    <strength.icon className="h-5 w-5 flex-shrink-0 mt-0.5" />
+        {/* BLURRED PREMIUM CONTENT */}
+        <div className="relative max-w-4xl mx-auto mb-8">
+          {/* Blur overlay with CTA */}
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-background/60 backdrop-blur-sm rounded-lg">
+            <div className="text-center p-8 max-w-md">
+              <div className="w-16 h-16 rounded-full bg-foreground/10 flex items-center justify-center mx-auto mb-4">
+                <Lock className="h-8 w-8" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">Découvrez votre rapport complet</h3>
+              <p className="text-muted-foreground mb-6">
+                Accédez à l'analyse détaillée de chaque dimension, vos points forts, vos défis à relever, 
+                et des recommandations personnalisées pour vous épanouir.
+              </p>
+              <Link to="/premium">
+                <Button size="lg" className="gap-2 mb-3">
+                  Obtenir le rapport complet — 12€
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+              <p className="text-xs text-muted-foreground">Paiement sécurisé • Accès immédiat • PDF téléchargeable</p>
+            </div>
+          </div>
+
+          {/* Blurred content underneath */}
+          <div className="pointer-events-none select-none">
+            {/* Detailed Results */}
+            <h3 className="text-xl font-bold mb-4">Comprendre chaque dimension</h3>
+            <div className="space-y-4 mb-8">
+              {resultAxes.map((axis) => (
+                <div key={axis.id} className="wireframe-card">
+                  <div className="flex items-start justify-between mb-3">
                     <div>
-                      <p className="font-medium">{strength.title}</p>
-                      <p className="text-sm text-muted-foreground">{strength.description}</p>
+                      <h4 className="text-lg font-bold">{axis.name}</h4>
+                      <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mt-1 ${getLevelColor(axis.level)}`}>
+                        {axis.score}/100 — {axis.level.charAt(0).toUpperCase() + axis.level.slice(1)}
+                      </span>
                     </div>
                   </div>
-                ))}
+                  <p className="text-muted-foreground">{axis.description}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Strengths & Challenges */}
+            <h2 className="text-2xl font-bold mb-6 text-center">Vos forces et vos défis</h2>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {/* Strengths */}
+              <div className="wireframe-card">
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                  <Sparkles className="h-5 w-5" />
+                  Vos points forts
+                </h3>
+                <div className="space-y-4">
+                  {strengths.map((strength, i) => (
+                    <div key={i} className="flex gap-3">
+                      <strength.icon className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="font-medium">{strength.title}</p>
+                        <p className="text-sm text-muted-foreground">{strength.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Challenges */}
+              <div className="wireframe-card">
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                  <Target className="h-5 w-5" />
+                  Les défis à apprivoiser
+                </h3>
+                <div className="space-y-4">
+                  {challenges.map((challenge, i) => (
+                    <div key={i}>
+                      <p className="font-medium">{challenge.title}</p>
+                      <p className="text-sm text-muted-foreground">{challenge.description}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Challenges */}
-            <div className="wireframe-card">
-              <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                <Target className="h-5 w-5" />
-                Les défis à apprivoiser
-              </h3>
-              <div className="space-y-4">
-                {challenges.map((challenge, i) => (
-                  <div key={i}>
-                    <p className="font-medium">{challenge.title}</p>
-                    <p className="text-sm text-muted-foreground">{challenge.description}</p>
-                  </div>
-                ))}
-              </div>
+            {/* Positive Approach */}
+            <div className="wireframe-card bg-accent/20 mb-8">
+              <h3 className="text-lg font-bold mb-4 text-center">L'essentiel à retenir</h3>
+              <p className="text-center text-muted-foreground">
+                Ces pistes ne visent pas à vous "corriger", mais à vous aider à mieux vous connaître. 
+                L'objectif est de créer les conditions pour que vos talents naturels s'expriment pleinement, 
+                tout en trouvant des stratégies pour les aspects plus exigeants.
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Positive Approach */}
-        <div className="wireframe-card max-w-3xl mx-auto mb-12 bg-accent/20">
-          <h3 className="text-lg font-bold mb-4 text-center">L'essentiel à retenir</h3>
-          <p className="text-center text-muted-foreground">
-            Ces pistes ne visent pas à vous "corriger", mais à vous aider à mieux vous connaître. 
-            L'objectif est de créer les conditions pour que vos talents naturels s'expriment pleinement, 
-            tout en trouvant des stratégies pour les aspects plus exigeants.
-          </p>
-        </div>
-
-        {/* Next Actions */}
+        {/* Next Actions - VISIBLE */}
         <div className="wireframe-card max-w-3xl mx-auto mb-12">
           <h2 className="text-xl font-bold mb-6 text-center">Vos prochaines étapes</h2>
           <div className="grid md:grid-cols-3 gap-4">
@@ -281,50 +315,6 @@ export default function Results() {
                 <p className="text-xs text-muted-foreground">{action.description}</p>
               </Link>
             ))}
-          </div>
-        </div>
-
-        {/* Premium Upsell */}
-        <div className="wireframe-card max-w-3xl mx-auto mb-12 relative overflow-hidden">
-          <div className="absolute top-4 right-4">
-            <Lock className="h-6 w-6 text-muted-foreground" />
-          </div>
-          <h2 className="text-xl font-bold mb-2">Aller plus loin avec le rapport complet</h2>
-          <p className="text-muted-foreground mb-6">
-            Recevez des recommandations personnalisées, des pistes concrètes d'aménagement et un rapport PDF détaillé à partager avec un professionnel si vous le souhaitez.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-4 mb-6">
-            <div className="p-4 border border-border rounded-lg">
-              <h3 className="font-bold mb-2">Gratuit</h3>
-              <ul className="text-sm space-y-1 text-muted-foreground">
-                <li>✓ Synthèse par dimension</li>
-                <li>✓ Points forts et défis</li>
-                <li>✓ 3 prochaines étapes</li>
-                <li className="line-through">Rapport PDF complet</li>
-                <li className="line-through">Recommandations personnalisées</li>
-              </ul>
-            </div>
-            <div className="p-4 border-2 border-foreground rounded-lg bg-accent/50">
-              <h3 className="font-bold mb-2">Rapport complet</h3>
-              <ul className="text-sm space-y-1">
-                <li>✓ Tout le gratuit</li>
-                <li>✓ Rapport PDF détaillé</li>
-                <li>✓ Pistes d'accompagnement</li>
-                <li>✓ Stratégies personnalisées</li>
-                <li>✓ Accès prioritaire à P-zy</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-            <Link to="/premium">
-              <Button size="lg" className="gap-2">
-                Obtenir le rapport complet
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
-            <span className="text-sm text-muted-foreground">à partir de 29€</span>
           </div>
         </div>
 
