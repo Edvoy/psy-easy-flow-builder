@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, AlertTriangle, BookOpen, Users, MessageCircle, Lock, Sparkles, Heart, Lightbulb, Target, Shield } from "lucide-react";
+import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer } from "recharts";
 
 interface ResultAxis {
   id: string;
@@ -282,8 +283,46 @@ export default function Results() {
         </div>
 
         {/* Next Actions - VISIBLE */}
-        <div className="wireframe-card max-w-3xl mx-auto mb-12">
+        <div className="wireframe-card max-w-4xl mx-auto mb-12">
           <h2 className="text-xl font-bold mb-6 text-center">Vos prochaines étapes</h2>
+          
+          {/* Radar Chart Section */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-center mb-4">Vue d'ensemble de votre profil</h3>
+            <div className="h-72 md:h-80">
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart data={resultAxes.map(axis => ({ name: axis.name, score: axis.score, fullMark: 100 }))}>
+                  <PolarGrid stroke="hsl(var(--border))" />
+                  <PolarAngleAxis 
+                    dataKey="name" 
+                    tick={{ fill: 'hsl(var(--foreground))', fontSize: 12, fontWeight: 600 }}
+                  />
+                  <PolarRadiusAxis 
+                    angle={90} 
+                    domain={[0, 100]} 
+                    tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }}
+                    tickCount={5}
+                  />
+                  <Radar
+                    name="Score"
+                    dataKey="score"
+                    stroke="hsl(var(--foreground))"
+                    fill="hsl(var(--foreground))"
+                    fillOpacity={0.3}
+                    strokeWidth={2}
+                  />
+                </RadarChart>
+              </ResponsiveContainer>
+            </div>
+            <p className="text-center text-muted-foreground text-sm mt-4">
+              Ce graphique illustre la répartition de vos traits cognitifs. Chaque axe représente une dimension 
+              de votre fonctionnement — plus le point est éloigné du centre, plus ce trait est prononcé chez vous.
+            </p>
+          </div>
+
+          <hr className="border-border my-8" />
+
+          {/* Action Cards */}
           <div className="grid md:grid-cols-3 gap-4">
             {[
               {
