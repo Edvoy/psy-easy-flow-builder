@@ -123,15 +123,6 @@ export default function TestStart() {
             </div>
           </div>
 
-          {/* Urgency link */}
-          <div className="text-center p-4 bg-muted/50 rounded-lg">
-            <p className="text-sm text-muted-foreground">
-              Si vous êtes en détresse ou avez besoin d'aide urgente :
-            </p>
-            <a href="#" className="text-sm font-medium underline">
-              Accéder aux ressources d'urgence →
-            </a>
-          </div>
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
