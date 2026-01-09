@@ -202,13 +202,13 @@ export default function ProDashboard() {
               </CardContent>
             </Card>
           </Link>
-          <Link to="/pro/certification">
+          <Link to="/pro/parametres">
             <Card className="border-2 hover:bg-accent/50 transition-colors cursor-pointer">
               <CardContent className="p-4 flex items-center gap-3">
                 <Award className="h-6 w-6" />
                 <div>
-                  <p className="font-semibold">Formation continue</p>
-                  <p className="text-sm text-muted-foreground">Renouveler ma certification</p>
+                  <p className="font-semibold">Gérer mon compte</p>
+                  <p className="text-sm text-muted-foreground">Paramètres et préférences</p>
                 </div>
                 <ArrowRight className="h-5 w-5 ml-auto" />
               </CardContent>

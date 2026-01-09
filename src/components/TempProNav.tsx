@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { 
   LayoutDashboard, 
   User,
-  GraduationCap,
   Users,
   BookOpen,
   Settings,
@@ -13,7 +12,6 @@ import {
 const pages = [
   { label: "Dashboard", href: "/pro/dashboard", icon: LayoutDashboard },
   { label: "Mon profil", href: "/pro/profil", icon: User },
-  { label: "Certification", href: "/pro/certification", icon: GraduationCap },
   { label: "Mes clients", href: "/pro/clients", icon: Users },
   { label: "Ressources", href: "/pro/ressources", icon: BookOpen },
   { label: "Paramètres", href: "/pro/parametres", icon: Settings },
