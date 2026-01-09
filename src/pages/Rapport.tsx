@@ -244,42 +244,7 @@ export default function Rapport() {
           </Button>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-8">
-          {/* Table of Contents */}
-          <aside className="lg:col-span-1">
-            <div className="wireframe-card sticky top-24">
-              <h3 className="font-bold mb-4">Table des matières</h3>
-              <nav className="space-y-2">
-                <a href="#overview" className="flex items-center gap-2 text-sm py-2 px-3 rounded hover:bg-accent transition-colors">
-                  <Brain className="h-4 w-4" />
-                  <span>Vue d'ensemble</span>
-                </a>
-                {kpiData.map((kpi) => (
-                  <a
-                    key={kpi.id}
-                    href={`#${kpi.id}`}
-                    className="flex items-center justify-between text-sm py-2 px-3 rounded hover:bg-accent transition-colors"
-                  >
-                    <span>{kpi.name}</span>
-                    <span className={`px-2 py-0.5 rounded text-xs ${getLevelColor(kpi.level)}`}>
-                      {kpi.score}%
-                    </span>
-                  </a>
-                ))}
-                <a href="#synthesis" className="flex items-center gap-2 text-sm py-2 px-3 rounded hover:bg-accent transition-colors">
-                  <Sparkles className="h-4 w-4" />
-                  <span>Synthèse globale</span>
-                </a>
-                <a href="#next-steps" className="flex items-center gap-2 text-sm py-2 px-3 rounded hover:bg-accent transition-colors">
-                  <Target className="h-4 w-4" />
-                  <span>Plan d'action</span>
-                </a>
-              </nav>
-            </div>
-          </aside>
-
-          {/* Report Content */}
-          <main className="lg:col-span-3 space-y-8">
+        <div className="max-w-4xl mx-auto space-y-8">
             {/* Report Header */}
             <div className="wireframe-card bg-gradient-to-br from-accent/50 to-background">
               <div className="text-center py-8">
@@ -304,68 +269,6 @@ export default function Rapport() {
               </div>
             </div>
 
-            {/* Overview Section with Radar Chart */}
-            <section id="overview" className="wireframe-card">
-              <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <Brain className="h-6 w-6" />
-                Vue d'ensemble de votre profil
-              </h2>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Radar Chart */}
-                <div>
-                  <h3 className="font-semibold mb-4 text-center">Cartographie cognitive</h3>
-                  <div className="h-72">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <RadarChart data={radarData}>
-                        <PolarGrid stroke="hsl(var(--border))" />
-                        <PolarAngleAxis 
-                          dataKey="name" 
-                          tick={{ fill: 'hsl(var(--foreground))', fontSize: 12, fontWeight: 600 }}
-                        />
-                        <PolarRadiusAxis 
-                          angle={90} 
-                          domain={[0, 100]} 
-                          tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }}
-                          tickCount={5}
-                        />
-                        <Radar
-                          name="Score"
-                          dataKey="score"
-                          stroke="hsl(var(--foreground))"
-                          fill="hsl(var(--foreground))"
-                          fillOpacity={0.3}
-                          strokeWidth={2}
-                        />
-                      </RadarChart>
-                    </ResponsiveContainer>
-                  </div>
-                </div>
-
-                {/* Bar Chart */}
-                <div>
-                  <h3 className="font-semibold mb-4 text-center">Intensité par dimension</h3>
-                  <div className="h-72">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <BarChart data={radarData} layout="vertical">
-                        <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 10 }} />
-                        <YAxis dataKey="name" type="category" tick={{ fontSize: 12, fontWeight: 600 }} width={50} />
-                        <Bar dataKey="score" radius={[0, 4, 4, 0]}>
-                          {radarData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={`hsl(var(--chart-${index + 1}))`} />
-                          ))}
-                        </Bar>
-                      </BarChart>
-                    </ResponsiveContainer>
-                  </div>
-                </div>
-              </div>
-
-              <p className="text-center text-muted-foreground text-sm mt-6">
-                Ces graphiques illustrent la répartition de vos traits cognitifs. Un score élevé n'est ni positif ni négatif — 
-                il indique simplement l'intensité de certaines caractéristiques dans votre fonctionnement.
-              </p>
-            </section>
 
             {/* Detailed KPI Sections */}
             {kpiData.map((kpi, index) => (
@@ -667,7 +570,6 @@ export default function Rapport() {
                 Conservez ce rapport et consultez-le à tout moment
               </p>
             </div>
-          </main>
         </div>
       </div>
     </Layout>
