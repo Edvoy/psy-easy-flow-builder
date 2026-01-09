@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowRight, Check, CreditCard, Lock } from "lucide-react";
+import premiumUnlockImg from "@/assets/illustrations/premium-unlock.png";
 
 export default function Premium() {
   const navigate = useNavigate();
@@ -23,6 +24,11 @@ export default function Premium() {
       <div className="container py-12">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
+            <img 
+              src={premiumUnlockImg} 
+              alt="Déverrouiller le contenu Premium" 
+              className="w-32 h-32 mx-auto mb-6 rounded-2xl object-cover"
+            />
             <h1 className="text-3xl md:text-4xl font-bold mb-4">
               Débloquez l'analyse Premium
             </h1>

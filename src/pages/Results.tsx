@@ -3,6 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, AlertTriangle, BookOpen, Users, MessageCircle, Lock, Sparkles, Heart, Lightbulb, Target, Shield } from "lucide-react";
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer } from "recharts";
+import resultsProfileImg from "@/assets/illustrations/results-profile.png";
 
 interface ResultAxis {
   id: string;
@@ -105,8 +106,13 @@ export default function Results() {
   return (
     <Layout>
       <div className="container py-12">
-        {/* Header */}
+        {/* Header with illustration */}
         <div className="text-center mb-8">
+          <img 
+            src={resultsProfileImg} 
+            alt="Votre profil cognitif" 
+            className="w-48 h-36 mx-auto mb-6 rounded-2xl object-cover"
+          />
           <p className="text-sm text-muted-foreground mb-2">Rapport de Profil</p>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Votre profil unique</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
