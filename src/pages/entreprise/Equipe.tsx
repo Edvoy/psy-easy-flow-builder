@@ -6,11 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { 
   Search, 
-  Filter,
   Eye,
   CheckCircle2,
   Clock,
-  AlertCircle
+  AlertCircle,
+  Send
 } from "lucide-react";
 import { useState } from "react";
 
@@ -153,20 +153,20 @@ export default function EntrepriseEquipe() {
           <CardContent>
             <div className="space-y-2">
               {/* Table Header */}
-              <div className="grid grid-cols-6 gap-4 px-4 py-2 bg-accent/50 rounded-md font-medium text-sm">
+              <div className="grid grid-cols-5 gap-4 px-4 py-2 bg-accent/50 rounded-md font-medium text-sm">
                 <span>ID</span>
                 <span>Département</span>
                 <span>Statut</span>
                 <span>Date</span>
-                <span>Profil dominant</span>
-                <span>Score</span>
+                <span>Action</span>
               </div>
               
               {/* Table Rows */}
               {filteredMembers.map((member) => {
                 const StatusIcon = statusConfig[member.status].icon;
+                const canRemind = member.status !== "completed";
                 return (
-                  <div key={member.id} className="grid grid-cols-6 gap-4 px-4 py-3 border-2 rounded-md items-center">
+                  <div key={member.id} className="grid grid-cols-5 gap-4 px-4 py-3 border-2 rounded-md items-center">
                     <span className="font-medium">{member.anonymousId}</span>
                     <span className="text-muted-foreground">{member.department}</span>
                     <Badge className={statusConfig[member.status].className}>
@@ -177,14 +177,14 @@ export default function EntrepriseEquipe() {
                       {member.completedAt || "—"}
                     </span>
                     <span>
-                      {member.dominantProfile ? (
-                        <Badge variant="outline">{member.dominantProfile}</Badge>
+                      {canRemind ? (
+                        <Button size="sm" variant="outline" className="gap-1">
+                          <Send className="h-3 w-3" />
+                          Relancer
+                        </Button>
                       ) : (
-                        "—"
+                        <span className="text-sm text-muted-foreground">—</span>
                       )}
-                    </span>
-                    <span className="font-medium">
-                      {member.score ? `${member.score}%` : "—"}
                     </span>
                   </div>
                 );
