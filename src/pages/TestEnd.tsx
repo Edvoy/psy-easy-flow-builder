@@ -7,15 +7,64 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Check, Loader2 } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+const CSP_OPTIONS = [
+  "Agriculteurs exploitants",
+  "Artisans, commerçants et chefs d'entreprise",
+  "Cadres et professions intellectuelles supérieures",
+  "Professions intermédiaires",
+  "Employés",
+  "Ouvriers",
+  "Retraités",
+  "Étudiants",
+  "Sans activité professionnelle",
+];
+
+const DEPARTEMENTS = [
+  "01 - Ain", "02 - Aisne", "03 - Allier", "04 - Alpes-de-Haute-Provence", "05 - Hautes-Alpes",
+  "06 - Alpes-Maritimes", "07 - Ardèche", "08 - Ardennes", "09 - Ariège", "10 - Aube",
+  "11 - Aude", "12 - Aveyron", "13 - Bouches-du-Rhône", "14 - Calvados", "15 - Cantal",
+  "16 - Charente", "17 - Charente-Maritime", "18 - Cher", "19 - Corrèze", "21 - Côte-d'Or",
+  "22 - Côtes-d'Armor", "23 - Creuse", "24 - Dordogne", "25 - Doubs", "26 - Drôme",
+  "27 - Eure", "28 - Eure-et-Loir", "29 - Finistère", "2A - Corse-du-Sud", "2B - Haute-Corse",
+  "30 - Gard", "31 - Haute-Garonne", "32 - Gers", "33 - Gironde", "34 - Hérault",
+  "35 - Ille-et-Vilaine", "36 - Indre", "37 - Indre-et-Loire", "38 - Isère", "39 - Jura",
+  "40 - Landes", "41 - Loir-et-Cher", "42 - Loire", "43 - Haute-Loire", "44 - Loire-Atlantique",
+  "45 - Loiret", "46 - Lot", "47 - Lot-et-Garonne", "48 - Lozère", "49 - Maine-et-Loire",
+  "50 - Manche", "51 - Marne", "52 - Haute-Marne", "53 - Mayenne", "54 - Meurthe-et-Moselle",
+  "55 - Meuse", "56 - Morbihan", "57 - Moselle", "58 - Nièvre", "59 - Nord",
+  "60 - Oise", "61 - Orne", "62 - Pas-de-Calais", "63 - Puy-de-Dôme", "64 - Pyrénées-Atlantiques",
+  "65 - Hautes-Pyrénées", "66 - Pyrénées-Orientales", "67 - Bas-Rhin", "68 - Haut-Rhin", "69 - Rhône",
+  "70 - Haute-Saône", "71 - Saône-et-Loire", "72 - Sarthe", "73 - Savoie", "74 - Haute-Savoie",
+  "75 - Paris", "76 - Seine-Maritime", "77 - Seine-et-Marne", "78 - Yvelines", "79 - Deux-Sèvres",
+  "80 - Somme", "81 - Tarn", "82 - Tarn-et-Garonne", "83 - Var", "84 - Vaucluse",
+  "85 - Vendée", "86 - Vienne", "87 - Haute-Vienne", "88 - Vosges", "89 - Yonne",
+  "90 - Territoire de Belfort", "91 - Essonne", "92 - Hauts-de-Seine", "93 - Seine-Saint-Denis",
+  "94 - Val-de-Marne", "95 - Val-d'Oise", "971 - Guadeloupe", "972 - Martinique",
+  "973 - Guyane", "974 - La Réunion", "976 - Mayotte",
+];
 
 export default function TestEnd() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [genre, setGenre] = useState("");
+  const [age, setAge] = useState("");
+  const [csp, setCsp] = useState("");
+  const [departement, setDepartement] = useState("");
   const [newsletter, setNewsletter] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  const isFormValid = email && genre && age && csp && departement;
+
   const handleSubmit = () => {
+    if (!isFormValid) return;
     setIsLoading(true);
     // Simulate API call
     setTimeout(() => {
@@ -108,10 +157,9 @@ export default function TestEnd() {
               {/* Genre Section */}
               <div className="wireframe-card space-y-4">
                 <div>
-                  <Label className="text-base font-bold">Votre genre</Label>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Anim fugi duisautei estl doeius ut ali veniamq irured
-                  </p>
+                  <Label className="text-base font-bold">
+                    Votre genre <span className="text-destructive">*</span>
+                  </Label>
                 </div>
 
                 <RadioGroup value={genre} onValueChange={setGenre}>
@@ -136,13 +184,79 @@ export default function TestEnd() {
                 </RadioGroup>
               </div>
 
+              {/* Age Section */}
+              <div className="wireframe-card space-y-4">
+                <div>
+                  <Label htmlFor="age" className="text-base font-bold">
+                    Votre âge <span className="text-destructive">*</span>
+                  </Label>
+                </div>
+                <Input
+                  id="age"
+                  type="number"
+                  min="1"
+                  max="120"
+                  placeholder="Votre âge"
+                  value={age}
+                  onChange={(e) => setAge(e.target.value)}
+                  className="border-2"
+                />
+              </div>
+
+              {/* CSP Section */}
+              <div className="wireframe-card space-y-4">
+                <div>
+                  <Label className="text-base font-bold">
+                    Catégorie socioprofessionnelle <span className="text-destructive">*</span>
+                  </Label>
+                </div>
+                <Select value={csp} onValueChange={setCsp}>
+                  <SelectTrigger className="border-2">
+                    <SelectValue placeholder="Sélectionnez votre CSP" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {CSP_OPTIONS.map((option) => (
+                      <SelectItem key={option} value={option}>
+                        {option}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Département Section */}
+              <div className="wireframe-card space-y-4">
+                <div>
+                  <Label className="text-base font-bold">
+                    Département <span className="text-destructive">*</span>
+                  </Label>
+                </div>
+                <Select value={departement} onValueChange={setDepartement}>
+                  <SelectTrigger className="border-2">
+                    <SelectValue placeholder="Sélectionnez votre département" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {DEPARTEMENTS.map((dept) => (
+                      <SelectItem key={dept} value={dept}>
+                        {dept}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
               {/* Submit */}
               <div className="text-center space-y-4">
-                <Button size="lg" onClick={handleSubmit} className="w-full sm:w-auto">
+                <Button 
+                  size="lg" 
+                  onClick={handleSubmit} 
+                  className="w-full sm:w-auto"
+                  disabled={!isFormValid}
+                >
                   Voir les résultats
                 </Button>
                 <p className="text-xs text-muted-foreground">
-                  En continuant, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité.
+                  <span className="text-destructive">*</span> Champs obligatoires. En continuant, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité.
                 </p>
               </div>
             </>
