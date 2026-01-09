@@ -4,7 +4,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Slider } from "@/components/ui/slider";
-import { ArrowLeft, ArrowRight, Save } from "lucide-react";
+import { ArrowRight, Save } from "lucide-react";
 
 interface Question {
   id: number;
@@ -99,12 +99,6 @@ export default function Questionnaire() {
     }
   };
 
-  const handlePrevious = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-      setShowError(false);
-    }
-  };
 
   const getSliderLabel = (value: number) => {
     const labels = ["Pas du tout d'accord", "Plutôt pas d'accord", "Neutre", "Plutôt d'accord", "Tout à fait d'accord"];
@@ -163,17 +157,7 @@ export default function Questionnaire() {
             )}
 
             {/* Navigation */}
-            <div className="flex items-center justify-between pt-4">
-              <Button
-                variant="outline"
-                onClick={handlePrevious}
-                disabled={currentQuestion === 0}
-                className="gap-2"
-              >
-                <ArrowLeft className="h-4 w-4" />
-                Précédent
-              </Button>
-
+            <div className="flex items-center justify-center pt-4">
               <Button onClick={handleNext} className="gap-2">
                 {currentQuestion === totalQuestions - 1 ? "Terminer" : "Suivant"}
                 <ArrowRight className="h-4 w-4" />
