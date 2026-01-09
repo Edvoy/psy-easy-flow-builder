@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Star, Users, Brain, Heart, Lightbulb, Shield, Info } from "lucide-react";
+import heroBrainImg from "@/assets/illustrations/hero-brain.png";
+import entreprisesTeamImg from "@/assets/illustrations/entreprises-team.png";
 
 export default function Landing() {
   return (
@@ -52,17 +54,11 @@ export default function Landing() {
 
             {/* Hero visual */}
             <div className="relative hidden lg:block">
-              <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-mint/40 via-light-blue/30 to-teal/20 rounded-3xl p-8 flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="text-6xl font-bold text-foreground">91.2%</div>
-                  <p className="text-muted-foreground">Taux de satisfaction utilisateurs</p>
-                  <div className="flex justify-center gap-1">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="h-5 w-5 fill-teal text-teal" />
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <img 
+                src={heroBrainImg} 
+                alt="Illustration représentant la diversité cognitive" 
+                className="w-full max-w-lg mx-auto rounded-3xl shadow-lg"
+              />
             </div>
           </div>
         </div>
@@ -139,9 +135,11 @@ export default function Landing() {
       <section className="bg-muted/30 border-y border-border">
         <div className="container section-padding">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="bg-gradient-to-br from-light-blue/20 to-mint/20 rounded-2xl aspect-video flex items-center justify-center">
-              <Users className="h-20 w-20 text-brand-blue/60" />
-            </div>
+            <img 
+              src={entreprisesTeamImg} 
+              alt="Équipe collaborant avec diversité cognitive" 
+              className="rounded-2xl w-full shadow-md"
+            />
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-blue/10 rounded-full text-sm font-medium text-brand-blue">
                 Pour les entreprises

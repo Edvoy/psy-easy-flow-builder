@@ -8,23 +8,31 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import particuliersDiscoveryImg from "@/assets/illustrations/particuliers-discovery.png";
 
 export default function Particuliers() {
   return (
     <Layout>
       {/* Hero Section */}
       <section id="pack-premium" className="container py-16 md:py-24">
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Pack Premium</h1>
-          <p className="text-lg text-muted-foreground mb-8">
-            Plébiscité par plus de 130 000 clients. Débloquez l'analyse complète de votre profil cognitif.
-          </p>
-          <Link to="/premium">
-            <Button size="lg" className="gap-2">
-              Découvrir le Pack Premium
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </Link>
+        <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+          <div className="text-center md:text-left">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Pack Premium</h1>
+            <p className="text-lg text-muted-foreground mb-8">
+              Plébiscité par plus de 130 000 clients. Débloquez l'analyse complète de votre profil cognitif.
+            </p>
+            <Link to="/premium">
+              <Button size="lg" className="gap-2">
+                Découvrir le Pack Premium
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+          <img 
+            src={particuliersDiscoveryImg} 
+            alt="Découverte de soi et croissance personnelle" 
+            className="rounded-2xl w-full max-w-sm mx-auto shadow-lg"
+          />
         </div>
       </section>
 

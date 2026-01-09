@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowRight, Check } from "lucide-react";
+import connexionWelcomeImg from "@/assets/illustrations/connexion-welcome.png";
 
 export default function Connexion() {
   const navigate = useNavigate();
@@ -35,6 +36,11 @@ export default function Connexion() {
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Left side - Benefits */}
           <div className="space-y-8">
+            <img 
+              src={connexionWelcomeImg} 
+              alt="Bienvenue sur Psy-Easy" 
+              className="w-full max-w-xs mx-auto rounded-2xl shadow-md"
+            />
             <div>
               <h1 className="text-3xl md:text-4xl font-bold mb-4">Bienvenue !</h1>
               <p className="text-muted-foreground">

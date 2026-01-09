@@ -9,6 +9,7 @@ import { Slider } from "@/components/ui/slider";
 import { ArrowRight, Check, Users, BarChart3, BookOpen, Shield, FileText, Play } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import entreprisesTeamImg from "@/assets/illustrations/entreprises-team.png";
 
 export default function Entreprises() {
   const [employeeCount, setEmployeeCount] = useState([50]);
@@ -49,9 +50,11 @@ export default function Entreprises() {
             </div>
           </div>
           
-          <div className="wireframe-placeholder aspect-square max-w-md mx-auto">
-            <BarChart3 className="h-16 w-16" />
-          </div>
+          <img 
+            src={entreprisesTeamImg} 
+            alt="Équipe collaborant avec diversité cognitive" 
+            className="rounded-2xl w-full max-w-md mx-auto shadow-lg"
+          />
         </div>
       </section>
 

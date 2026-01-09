@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import prosProfessionalImg from "@/assets/illustrations/pros-professional.png";
 
 export default function Pros() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -20,17 +21,24 @@ export default function Pros() {
       <TempProNav />
       {/* Hero */}
       <section className="container py-16 md:py-24">
-        <div className="text-center max-w-3xl mx-auto">
-          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium border-2 border-foreground rounded-full">
-            Pour les professionnels
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Intégrez l'évaluation cognitive à votre pratique
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            Psychologues, thérapeutes et coachs : proposez à vos clients un outil d'évaluation 
-            fiable et bienveillant avec des licences adaptées à votre volume.
-          </p>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="text-center md:text-left">
+            <span className="inline-block px-4 py-2 mb-4 text-sm font-medium border-2 border-foreground rounded-full">
+              Pour les professionnels
+            </span>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Intégrez l'évaluation cognitive à votre pratique
+            </h1>
+            <p className="text-xl text-muted-foreground">
+              Psychologues, thérapeutes et coachs : proposez à vos clients un outil d'évaluation 
+              fiable et bienveillant avec des licences adaptées à votre volume.
+            </p>
+          </div>
+          <img 
+            src={prosProfessionalImg} 
+            alt="Professionnel de santé mentale" 
+            className="rounded-2xl w-full max-w-md mx-auto shadow-lg"
+          />
         </div>
       </section>
 
