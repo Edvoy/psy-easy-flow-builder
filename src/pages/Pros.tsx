@@ -1,7 +1,8 @@
 import { Layout } from "@/components/layout/Layout";
 import { TempProNav } from "@/components/TempProNav";
 import { Button } from "@/components/ui/button";
-import { Check, Users, FileText, Shield, ArrowRight, Brain, FlaskConical, BookOpen, Award, Clock, Zap, UserPlus, TrendingUp, Star, Handshake } from "lucide-react";
+import { Check, ArrowRight, Clock, FileText, Shield, Users, Zap, Award, Star, UserPlus, TrendingUp, Handshake } from "lucide-react";
+import { BrandIcon } from "@/components/BrandPicto";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -53,7 +54,7 @@ export default function Pros() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="border-2 border-foreground">
               <CardHeader>
-                <Brain className="h-10 w-10 mb-2" />
+                <BrandIcon type="brain" size="lg" variant="primary" />
                 <CardTitle>Fondements théoriques</CardTitle>
               </CardHeader>
               <CardContent>
@@ -65,7 +66,7 @@ export default function Pros() {
 
             <Card className="border-2 border-foreground">
               <CardHeader>
-                <FlaskConical className="h-10 w-10 mb-2" />
+                <BrandIcon type="flask" size="lg" variant="teal" />
                 <CardTitle>Validation empirique</CardTitle>
               </CardHeader>
               <CardContent>
@@ -77,7 +78,7 @@ export default function Pros() {
 
             <Card className="border-2 border-foreground">
               <CardHeader>
-                <BookOpen className="h-10 w-10 mb-2" />
+                <BrandIcon type="book" size="lg" variant="pink" />
                 <CardTitle>Publications</CardTitle>
               </CardHeader>
               <CardContent>
@@ -89,7 +90,7 @@ export default function Pros() {
 
             <Card className="border-2 border-foreground">
               <CardHeader>
-                <Award className="h-10 w-10 mb-2" />
+                <BrandIcon type="award" size="lg" variant="mint" />
                 <CardTitle>Normes françaises</CardTitle>
               </CardHeader>
               <CardContent>

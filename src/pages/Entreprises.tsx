@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Slider } from "@/components/ui/slider";
-import { ArrowRight, Check, Users, BarChart3, BookOpen, Shield, FileText, Play } from "lucide-react";
+import { ArrowRight, Check, Users, Play, FileText, BarChart3 } from "lucide-react";
+import { BrandIcon } from "@/components/BrandPicto";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import entreprisesTeamImg from "@/assets/illustrations/entreprises-team.png";
@@ -69,29 +70,33 @@ export default function Entreprises() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                icon: Users,
+                type: "users" as const,
+                variant: "primary" as const,
                 title: "Vue agrégée",
                 description: "Analysez les profils d'équipe sans identifier les individus",
               },
               {
-                icon: Shield,
+                type: "shield" as const,
+                variant: "teal" as const,
                 title: "Pas de labels",
                 description: "Aucun diagnostic individuel, uniquement des tendances collectives",
               },
               {
-                icon: BookOpen,
+                type: "book" as const,
+                variant: "pink" as const,
                 title: "Kits managers",
                 description: "Ressources pratiques pour accompagner vos équipes au quotidien",
               },
               {
-                icon: BarChart3,
+                type: "chart" as const,
+                variant: "mint" as const,
                 title: "Ateliers",
                 description: "Sessions de sensibilisation et de formation personnalisées",
               },
             ].map((benefit, i) => (
               <Card key={i} className="border-2 border-foreground text-center">
                 <CardContent className="pt-6">
-                  <benefit.icon className="h-10 w-10 mx-auto mb-4" />
+                  <BrandIcon type={benefit.type} size="lg" variant={benefit.variant} className="mx-auto mb-4" />
                   <h3 className="font-bold mb-2">{benefit.title}</h3>
                   <p className="text-sm text-muted-foreground">{benefit.description}</p>
                 </CardContent>
