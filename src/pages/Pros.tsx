@@ -1,28 +1,14 @@
 import { Layout } from "@/components/layout/Layout";
 import { TempProNav } from "@/components/TempProNav";
 import { Button } from "@/components/ui/button";
-import { Check, Users, FileText, Shield, ArrowRight, Brain, FlaskConical, BookOpen, Award, Clock, Zap, Calculator } from "lucide-react";
+import { Check, Users, FileText, Shield, ArrowRight, Brain, FlaskConical, BookOpen, Award, Clock, Zap, UserPlus, TrendingUp, Star, Handshake } from "lucide-react";
 import { useState } from "react";
-import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Pros() {
-  const [licenseCount, setLicenseCount] = useState([10]);
   const [formSubmitted, setFormSubmitted] = useState(false);
-
-  const getPricePerLicense = (count: number) => {
-    if (count >= 100) return 6;
-    if (count >= 50) return 7;
-    if (count >= 20) return 8;
-    if (count >= 10) return 9;
-    return 10;
-  };
-
-  const pricePerLicense = getPricePerLicense(licenseCount[0]);
-  const totalPrice = licenseCount[0] * pricePerLicense;
-  const savings = licenseCount[0] * 10 - totalPrice;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -171,113 +157,121 @@ export default function Pros() {
         </div>
       </section>
 
-      {/* Estimation des prix */}
-      <section id="estimation-prix" className="border-y-2 border-foreground bg-muted/30">
+      {/* Réseau de partenaires */}
+      <section id="reseau-partenaires" className="border-y-2 border-foreground bg-muted/30">
         <div className="container py-16 md:py-24">
-          <h2 className="text-3xl font-bold text-center mb-4">Estimation des Prix</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Intégrer notre Réseau de Partenaires</h2>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Simulez le coût de vos licences en fonction de vos besoins.
+            Rejoignez un écosystème de professionnels certifiés et bénéficiez d'un flux régulier de nouveaux patients.
           </p>
 
           <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            {/* Simulateur */}
-            <Card className="border-2 border-foreground">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <Calculator className="h-6 w-6" />
-                  <CardTitle>Simulateur de tarif</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-8">
-                <div>
-                  <div className="flex justify-between mb-4">
-                    <span className="font-medium">Nombre de licences</span>
-                    <span className="text-2xl font-bold">{licenseCount[0]}</span>
-                  </div>
-                  <Slider
-                    value={licenseCount}
-                    onValueChange={setLicenseCount}
-                    min={1}
-                    max={200}
-                    step={1}
-                    className="mb-2"
-                  />
-                  <div className="flex justify-between text-sm text-muted-foreground">
-                    <span>1</span>
-                    <span>200+</span>
-                  </div>
-                </div>
+            {/* Avantages du réseau */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold flex items-center gap-2">
+                <Star className="h-5 w-5" />
+                Pourquoi rejoindre le réseau ?
+              </h3>
+              
+              <div className="space-y-4">
+                <Card className="border-2 border-foreground">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-muted rounded-lg">
+                        <UserPlus className="h-6 w-6" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold mb-1">Apport de patientèle qualifiée</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Recevez des patients pré-qualifiés par notre questionnaire, avec un profil cognitif détaillé avant même la première consultation.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
 
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div className="p-4 bg-muted rounded-lg">
-                    <p className="text-xs text-muted-foreground">Prix unitaire</p>
-                    <p className="text-2xl font-bold">{pricePerLicense}€</p>
-                  </div>
-                  <div className="p-4 bg-muted rounded-lg">
-                    <p className="text-xs text-muted-foreground">Total</p>
-                    <p className="text-2xl font-bold">{totalPrice}€</p>
-                  </div>
-                  <div className="p-4 bg-green-100 dark:bg-green-900/20 rounded-lg">
-                    <p className="text-xs text-muted-foreground">Économies</p>
-                    <p className="text-2xl font-bold text-green-600">{savings}€</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                <Card className="border-2 border-foreground">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-muted rounded-lg">
+                        <TrendingUp className="h-6 w-6" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold mb-1">Flux régulier de demandes</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Notre plateforme génère un flux constant de demandes de consultation. Les utilisateurs ayant complété leur profil sont orientés vers vous.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
 
-            {/* Grille tarifaire */}
-            <Card className="border-2 border-foreground">
-              <CardHeader>
-                <CardTitle>Grille tarifaire</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b">
-                      <th className="text-left py-3">Quantité</th>
-                      <th className="text-right py-3">Prix unitaire</th>
-                      <th className="text-right py-3">Réduction</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="border-b">
-                      <td className="py-3">1 - 9 licences</td>
-                      <td className="text-right">10€</td>
-                      <td className="text-right">-</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="py-3">10 - 19 licences</td>
-                      <td className="text-right">9€</td>
-                      <td className="text-right text-green-600">-10%</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="py-3">20 - 49 licences</td>
-                      <td className="text-right">8€</td>
-                      <td className="text-right text-green-600">-20%</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="py-3">50 - 99 licences</td>
-                      <td className="text-right">7€</td>
-                      <td className="text-right text-green-600">-30%</td>
-                    </tr>
-                    <tr>
-                      <td className="py-3">100+ licences</td>
-                      <td className="text-right">6€</td>
-                      <td className="text-right text-green-600">-40%</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <Card className="border-2 border-foreground">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-muted rounded-lg">
+                        <Handshake className="h-6 w-6" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold mb-1">Mise en relation simplifiée</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Les patients vous contactent directement via la plateforme. Plus besoin de prospection, concentrez-vous sur votre cœur de métier.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
 
-                <div className="mt-6 p-4 bg-muted rounded-lg">
-                  <p className="font-medium mb-2">Chaque licence inclut :</p>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-green-600" /> 1 passation complète</li>
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-green-600" /> Rapport professionnel</li>
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-green-600" /> Export PDF</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
+            {/* Ce qui est inclus */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold flex items-center gap-2">
+                <Award className="h-5 w-5" />
+                Avantages partenaire certifié
+              </h3>
+
+              <Card className="border-2 border-foreground">
+                <CardContent className="pt-6 space-y-4">
+                  <div className="space-y-3">
+                    {[
+                      "Profil visible dans l'annuaire des praticiens partenaires",
+                      "Badge 'Praticien Psy-Easy Certifié' pour votre communication",
+                      "Accès aux rapports détaillés de vos patients référés",
+                      "Formation continue sur nos méthodologies",
+                      "Priorité dans l'orientation des patients de votre zone",
+                      "Statistiques mensuelles sur vos recommandations",
+                      "Support dédié et communauté de praticiens",
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                        <span className="text-sm">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="pt-4 border-t">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-sm text-muted-foreground">Adhésion annuelle</span>
+                      <div className="text-right">
+                        <span className="text-2xl font-bold">Gratuit</span>
+                        <p className="text-xs text-muted-foreground">la première année</p>
+                      </div>
+                    </div>
+                    <Button className="w-full gap-2">
+                      Rejoindre le réseau
+                      <ArrowRight className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <div className="p-4 bg-accent/50 rounded-lg border-2 border-foreground/20">
+                <p className="text-sm text-muted-foreground">
+                  <strong className="text-foreground">+500 professionnels</strong> ont déjà rejoint notre réseau de praticiens certifiés dans toute la France.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
