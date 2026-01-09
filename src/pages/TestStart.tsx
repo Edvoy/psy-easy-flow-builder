@@ -11,7 +11,7 @@ export default function TestStart() {
   const [consentRecherche, setConsentRecherche] = useState(false);
 
   const handleStart = () => {
-    if (consentService) {
+    if (consentService && consentRecherche) {
       navigate("/test/questionnaire");
     }
   };
@@ -103,8 +103,8 @@ export default function TestStart() {
               </div>
             </div>
 
-            {/* Research consent - Optional */}
-            <div className="flex items-start gap-3 p-4 border border-border rounded-lg bg-muted/30">
+            {/* Research consent - Required for free access */}
+            <div className="flex items-start gap-3 p-4 border-2 border-foreground rounded-lg">
               <Checkbox
                 id="consent-recherche"
                 checked={consentRecherche}
@@ -113,10 +113,11 @@ export default function TestStart() {
               />
               <div className="flex-1">
                 <label htmlFor="consent-recherche" className="font-medium cursor-pointer">
-                  J'accepte de participer à la recherche (optionnel)
+                  J'accepte de participer à la recherche *
                 </label>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Vos données anonymisées pourront être utilisées pour améliorer nos outils. 
+                  <span className="text-brand-blue font-medium">C'est ce qui rend le test gratuit.</span>{" "}
+                  Vos données anonymisées seront utilisées pour améliorer nos outils et faire avancer la recherche. 
                   Ce consentement est révocable à tout moment dans vos paramètres.
                 </p>
               </div>
@@ -129,7 +130,7 @@ export default function TestStart() {
             <Button
               size="lg"
               onClick={handleStart}
-              disabled={!consentService}
+              disabled={!consentService || !consentRecherche}
               className="gap-2"
             >
               Commencer le test

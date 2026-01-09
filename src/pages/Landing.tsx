@@ -14,7 +14,7 @@ export default function Landing() {
             <div className="space-y-8 animate-fade-in-up">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full text-sm font-medium">
                 <Brain className="h-4 w-4 text-brand-blue" />
-                <span>Évaluation cognitive bienveillante</span>
+                <span>Évaluation cognitive</span>
               </div>
               
               <h1 className="text-h1 md:text-display text-foreground">
