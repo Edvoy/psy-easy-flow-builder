@@ -251,13 +251,6 @@ export default function Pros() {
                   </div>
 
                   <div className="pt-4 border-t">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-sm text-muted-foreground">Adhésion annuelle</span>
-                      <div className="text-right">
-                        <span className="text-2xl font-bold">Gratuit</span>
-                        <p className="text-xs text-muted-foreground">la première année</p>
-                      </div>
-                    </div>
                     <Button className="w-full gap-2">
                       Rejoindre le réseau
                       <ArrowRight className="h-4 w-4" />
