@@ -29,7 +29,6 @@ import EntrepriseRessources from "./pages/entreprise/Ressources";
 import EntrepriseParametres from "./pages/entreprise/Parametres";
 import ProDashboard from "./pages/pro/Dashboard";
 import ProProfil from "./pages/pro/Profil";
-import ProCertification from "./pages/pro/Certification";
 import ProClients from "./pages/pro/Clients";
 import ProRessources from "./pages/pro/Ressources";
 import ProParametres from "./pages/pro/Parametres";
@@ -80,7 +79,6 @@ const App = () => (
           <Route path="/entreprise/parametres" element={<EntrepriseParametres />} />
           <Route path="/pro/dashboard" element={<ProDashboard />} />
           <Route path="/pro/profil" element={<ProProfil />} />
-          <Route path="/pro/certification" element={<ProCertification />} />
           <Route path="/pro/clients" element={<ProClients />} />
           <Route path="/pro/ressources" element={<ProRessources />} />
           <Route path="/pro/parametres" element={<ProParametres />} />

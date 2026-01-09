@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, User, GraduationCap, Users, BookOpen, Settings, Award } from "lucide-react";
+import { LayoutDashboard, User, Users, BookOpen, Settings, Award } from "lucide-react";
 
 export function ProSidebar() {
   const location = useLocation();
@@ -7,7 +7,6 @@ export function ProSidebar() {
   const navItems = [
     { label: "Dashboard", href: "/pro/dashboard", icon: LayoutDashboard },
     { label: "Mon profil", href: "/pro/profil", icon: User },
-    { label: "Certification", href: "/pro/certification", icon: GraduationCap },
     { label: "Mes clients", href: "/pro/clients", icon: Users },
     { label: "Ressources", href: "/pro/ressources", icon: BookOpen },
     { label: "Paramètres", href: "/pro/parametres", icon: Settings },
