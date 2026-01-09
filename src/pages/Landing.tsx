@@ -1,61 +1,86 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Star, Users, BarChart3 } from "lucide-react";
+import { ArrowRight, Check, Star, Users, Brain, Heart, Lightbulb, Shield, Info } from "lucide-react";
 
 export default function Landing() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="container py-16 md:py-24">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Cultivez vos talents cachés
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-lg">
-              Découvrez votre potentiel. Grâce à un test interactif et un parcours d'accompagnement, transformez vos différences en forces.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/test">
-                <Button size="lg" className="w-full sm:w-auto gap-2">
-                  Passer le test
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-            
-            {/* Disclaimer */}
-            <div className="disclaimer-box">
-              <p className="text-xs">
-                ⚠️ Cet outil est un outil d'orientation et ne remplace pas un avis professionnel.
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-soft pattern-overlay" />
+        <div className="container relative section-padding">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8 animate-fade-in-up">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full text-sm font-medium">
+                <Brain className="h-4 w-4 text-brand-blue" />
+                <span>Évaluation cognitive bienveillante</span>
+              </div>
+              
+              <h1 className="text-h1 md:text-display text-foreground">
+                Cultivez vos{" "}
+                <span className="text-brand-blue">talents cachés</span>
+              </h1>
+              
+              <p className="text-body-lg text-muted-foreground max-w-lg">
+                Découvrez votre profil cognitif unique. Un test interactif et un parcours 
+                d'accompagnement pour transformer vos différences en forces.
               </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/test">
+                  <Button size="lg" className="gap-2 w-full sm:w-auto">
+                    Passer le test gratuitement
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link to="/articles">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                    En savoir plus
+                  </Button>
+                </Link>
+              </div>
+              
+              {/* Disclaimer */}
+              <div className="disclaimer-box flex items-start gap-3">
+                <Info className="h-5 w-5 flex-shrink-0 mt-0.5 text-info" />
+                <p className="text-small">
+                  Cet outil propose des pistes de réflexion et ne remplace pas un avis professionnel qualifié.
+                </p>
+              </div>
             </div>
-          </div>
 
-          {/* Hero visual placeholder */}
-          <div className="wireframe-placeholder aspect-square max-w-md mx-auto">
-            <div className="text-center p-8">
-              <div className="text-6xl font-bold">91.2%</div>
-              <div className="text-sm mt-2">Taux de satisfaction</div>
+            {/* Hero visual */}
+            <div className="relative hidden lg:block">
+              <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-mint/40 via-light-blue/30 to-teal/20 rounded-3xl p-8 flex items-center justify-center">
+                <div className="text-center space-y-4">
+                  <div className="text-6xl font-bold text-foreground">91.2%</div>
+                  <p className="text-muted-foreground">Taux de satisfaction utilisateurs</p>
+                  <div className="flex justify-center gap-1">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star key={i} className="h-5 w-5 fill-teal text-teal" />
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="border-y-2 border-foreground bg-muted/30">
+      <section className="border-y border-border bg-muted/30">
         <div className="container py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "PROI+", label: "Cupid elits ut Labori" },
-              { value: "DES+", label: "Cupid elits ut Labori" },
-              { value: "VOLUP+", label: "Cupid elits ut Labori" },
-              { value: "91.2%", label: "Cupid elits ut Labori" },
+              { value: "130K+", label: "Profils analysés" },
+              { value: "500+", label: "Praticiens partenaires" },
+              { value: "91%", label: "Satisfaction" },
+              { value: "5", label: "Axes évalués" },
             ].map((stat, i) => (
               <div key={i} className="space-y-2">
-                <div className="text-2xl md:text-3xl font-bold">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-h2 font-bold text-brand-blue">{stat.value}</div>
+                <div className="text-small text-muted-foreground">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -63,25 +88,47 @@ export default function Landing() {
       </section>
 
       {/* Typologies Section */}
-      <section className="container py-16 md:py-24">
+      <section className="container section-padding">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Typologies cognitives</h2>
+          <h2 className="text-h2 mb-4">Explorez les profils cognitifs</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Explorez les différents profils cognitifs et découvrez comment ils influencent votre façon de penser et d'interagir.
+            Chaque profil apporte ses forces et ses particularités. Mieux les comprendre, 
+            c'est mieux s'accompagner.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { title: "HPI", description: "Haut Potentiel Intellectuel - Capacités cognitives élevées" },
-            { title: "TDA/TDAH", description: "Trouble du Déficit de l'Attention avec ou sans Hyperactivité" },
-            { title: "TSA", description: "Trouble du Spectre de l'Autisme - Neurodivergence" },
+            { 
+              title: "HPI", 
+              subtitle: "Haut Potentiel Intellectuel",
+              description: "Pensée rapide, sensibilité accrue, besoin de stimulation intellectuelle.",
+              color: "bg-teal/10 border-teal/30"
+            },
+            { 
+              title: "TDA/TDAH", 
+              subtitle: "Attention & Hyperactivité",
+              description: "Créativité, énergie, pensée divergente et recherche de nouveauté.",
+              color: "bg-brand-blue/10 border-brand-blue/30"
+            },
+            { 
+              title: "TSA", 
+              subtitle: "Spectre de l'Autisme",
+              description: "Pensée en détails, intérêts profonds, besoin de prévisibilité.",
+              color: "bg-mint/30 border-mint/50"
+            },
           ].map((type, i) => (
-            <div key={i} className="wireframe-card hover:bg-accent transition-colors">
-              <h3 className="text-xl font-bold mb-3">{type.title}</h3>
-              <p className="text-sm text-muted-foreground mb-4">{type.description}</p>
-              <Link to="/articles" className="text-sm font-medium flex items-center gap-1 hover:underline">
-                En savoir plus <ArrowRight className="h-3 w-3" />
+            <div 
+              key={i} 
+              className={`psy-card ${type.color} border hover:shadow-md transition-all`}
+            >
+              <div className="inline-block px-3 py-1 bg-foreground/5 rounded-lg text-sm font-semibold mb-3">
+                {type.title}
+              </div>
+              <h3 className="text-h3 mb-2">{type.subtitle}</h3>
+              <p className="text-small text-muted-foreground mb-4">{type.description}</p>
+              <Link to="/articles" className="text-small font-medium text-brand-blue flex items-center gap-1 hover:gap-2 transition-all">
+                Comprendre ce profil <ArrowRight className="h-3 w-3" />
               </Link>
             </div>
           ))}
@@ -89,29 +136,36 @@ export default function Landing() {
       </section>
 
       {/* For Teams Section */}
-      <section className="border-y-2 border-foreground">
-        <div className="container py-16 md:py-24">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="wireframe-placeholder aspect-video">
-              <Users className="h-16 w-16" />
+      <section className="bg-muted/30 border-y border-border">
+        <div className="container section-padding">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="bg-gradient-to-br from-light-blue/20 to-mint/20 rounded-2xl aspect-video flex items-center justify-center">
+              <Users className="h-20 w-20 text-brand-blue/60" />
             </div>
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-blue/10 rounded-full text-sm font-medium text-brand-blue">
+                Pour les entreprises
+              </div>
+              <h2 className="text-h2">
                 Comprenez réellement votre équipe
               </h2>
               <p className="text-muted-foreground">
-                Révélez les dynamiques réelles de votre équipe avec une vue agrégée et anonymisée. Aucun label individuel, juste des insights actionnables.
+                Révélez les dynamiques réelles avec une vue agrégée et anonymisée. 
+                Pas de labels individuels, uniquement des insights actionnables pour améliorer 
+                le bien-être et la performance.
               </p>
               <ul className="space-y-3">
                 {[
                   "Vue agrégée des profils d'équipe",
-                  "Pas de labels individuels",
-                  "Kits managers inclus",
+                  "Aucun diagnostic individuel",
+                  "Kits managers et ressources",
                   "Ateliers personnalisés",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2">
-                    <Check className="h-5 w-5" />
-                    <span>{item}</span>
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-teal/20 flex items-center justify-center">
+                      <Check className="h-3 w-3 text-teal" />
+                    </div>
+                    <span className="text-small">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -126,48 +180,104 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="container py-16 md:py-24">
+      {/* Values Section */}
+      <section className="container section-padding">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Voyez ce que les autres en disent
-          </h2>
-          <p className="text-muted-foreground">
-            Dolorem nis quioffic pr rep estla par?
+          <h2 className="text-h2 mb-4">Notre approche</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Une démarche bienveillante, fondée sur la science, pour vous aider à mieux vous comprendre.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="wireframe-card">
-              <div className="flex gap-1 mb-4">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="h-4 w-4 fill-foreground" />
-                ))}
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              icon: Shield,
+              title: "Sérénité",
+              description: "Un espace sécurisé et bienveillant, loin de toute stigmatisation.",
+            },
+            {
+              icon: Lightbulb,
+              title: "Clarté",
+              description: "Des explications accessibles, sans jargon, pour vraiment comprendre.",
+            },
+            {
+              icon: Heart,
+              title: "Douceur",
+              description: "Des pistes, pas des verdicts. Vous restez maître de votre parcours.",
+            },
+          ].map((value, i) => (
+            <div key={i} className="text-center space-y-4">
+              <div className="w-14 h-14 mx-auto rounded-2xl bg-secondary flex items-center justify-center">
+                <value.icon className="h-7 w-7 text-brand-blue" />
               </div>
-              <p className="text-sm text-muted-foreground mb-4">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full border-2 border-foreground flex items-center justify-center">
-                  <span className="text-sm font-bold">M{i}</span>
-                </div>
-                <div>
-                  <div className="font-medium text-sm">Marie D.</div>
-                  <div className="text-xs text-muted-foreground">Utilisatrice Premium</div>
-                </div>
-              </div>
+              <h3 className="text-h3">{value.title}</h3>
+              <p className="text-small text-muted-foreground">{value.description}</p>
             </div>
           ))}
         </div>
+      </section>
 
-        <div className="text-center mt-12">
-          <Link to="/test">
-            <Button size="lg" className="gap-2">
-              Passer le test
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </Link>
+      {/* Testimonials Section */}
+      <section className="bg-muted/30 border-y border-border">
+        <div className="container section-padding">
+          <div className="text-center mb-12">
+            <h2 className="text-h2 mb-4">
+              Ce qu'ils en disent
+            </h2>
+            <p className="text-muted-foreground">
+              Des milliers de personnes ont déjà découvert leur profil
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                text: "Enfin un outil qui m'a aidé à comprendre mon fonctionnement sans me coller une étiquette. Les pistes proposées sont vraiment utiles.",
+                name: "Marie D.",
+                role: "Utilisatrice Premium",
+              },
+              {
+                text: "J'ai pu préparer ma consultation avec mon psychologue grâce au rapport. Un vrai gain de temps et de clarté.",
+                name: "Thomas L.",
+                role: "Parent concerné",
+              },
+              {
+                text: "L'approche bienveillante m'a permis d'aborder le sujet sereinement. Je recommande à tous ceux qui se posent des questions.",
+                name: "Sophie M.",
+                role: "Enseignante",
+              },
+            ].map((testimonial, i) => (
+              <div key={i} className="psy-card">
+                <div className="flex gap-1 mb-4">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star key={star} className="h-4 w-4 fill-teal text-teal" />
+                  ))}
+                </div>
+                <p className="text-small text-muted-foreground mb-4 italic">
+                  "{testimonial.text}"
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
+                    <span className="text-sm font-semibold">{testimonial.name[0]}</span>
+                  </div>
+                  <div>
+                    <div className="font-medium text-small">{testimonial.name}</div>
+                    <div className="text-meta text-muted-foreground">{testimonial.role}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/test">
+              <Button size="lg" className="gap-2">
+                Découvrir mon profil
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </Layout>
