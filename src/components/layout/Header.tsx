@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Search, Globe, User, Menu, X } from "lucide-react";
+import logoImg from "@/assets/logo-psyeasy.png";
 import { useState } from "react";
 import {
   DropdownMenu,
@@ -44,11 +45,8 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
       <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
         <div className="container flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">P</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">Psy-Easy</span>
+          <Link to="/" className="flex items-center">
+            <img src={logoImg} alt="Psy-Easy" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
