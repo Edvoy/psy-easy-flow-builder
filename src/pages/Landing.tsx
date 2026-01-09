@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Star, Users, Brain, Heart, Lightbulb, Shield, Info } from "lucide-react";
+import { ArrowRight, Check, Star, Info } from "lucide-react";
+import { BrandIcon } from "@/components/BrandPicto";
 import heroBrainImg from "@/assets/illustrations/hero-brain.png";
 import entreprisesTeamImg from "@/assets/illustrations/entreprises-team.png";
 
@@ -15,7 +16,7 @@ export default function Landing() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-fade-in-up">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full text-sm font-medium">
-                <Brain className="h-4 w-4 text-brand-blue" />
+                <BrandIcon type="brain" size="sm" variant="primary" />
                 <span>Évaluation cognitive</span>
               </div>
               
@@ -160,9 +161,7 @@ export default function Landing() {
                   "Ateliers personnalisés",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-teal/20 flex items-center justify-center">
-                      <Check className="h-3 w-3 text-teal" />
-                    </div>
+                    <BrandIcon type="check" size="sm" variant="teal" className="w-5 h-5" />
                     <span className="text-small">{item}</span>
                   </li>
                 ))}
@@ -190,24 +189,27 @@ export default function Landing() {
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
-              icon: Shield,
+              type: "shield" as const,
+              variant: "primary" as const,
               title: "Sérénité",
               description: "Un espace sécurisé et bienveillant, loin de toute stigmatisation.",
             },
             {
-              icon: Lightbulb,
+              type: "lightbulb" as const,
+              variant: "teal" as const,
               title: "Clarté",
               description: "Des explications accessibles, sans jargon, pour vraiment comprendre.",
             },
             {
-              icon: Heart,
+              type: "heart" as const,
+              variant: "pink" as const,
               title: "Douceur",
               description: "Des pistes, pas des verdicts. Vous restez maître de votre parcours.",
             },
           ].map((value, i) => (
             <div key={i} className="text-center space-y-4">
-              <div className="w-14 h-14 mx-auto rounded-2xl bg-secondary flex items-center justify-center">
-                <value.icon className="h-7 w-7 text-brand-blue" />
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-secondary flex items-center justify-center">
+                <BrandIcon type={value.type} size="lg" variant={value.variant} />
               </div>
               <h3 className="text-h3">{value.title}</h3>
               <p className="text-small text-muted-foreground">{value.description}</p>

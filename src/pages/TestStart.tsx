@@ -123,8 +123,7 @@ export default function TestStart() {
                 </label>
                 <p className="text-sm text-muted-foreground mt-1">
                   <span className="text-brand-blue font-medium">C'est ce qui rend le test gratuit.</span>{" "}
-                  Vos données anonymisées seront utilisées pour améliorer nos outils et faire avancer la recherche. 
-                  Ce consentement est révocable à tout moment dans vos paramètres.
+                  Vos données anonymisées seront utilisées pour améliorer nos outils et faire avancer la recherche.
                 </p>
               </div>
             </div>
