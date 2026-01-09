@@ -179,42 +179,160 @@ export default function Entreprises() {
 
       {/* Price Simulator */}
       <section className="container py-16 md:py-24">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4">Simulateur de prix</h2>
-          <p className="text-center text-muted-foreground mb-8">
-            Estimez le coût pour votre organisation
+          <p className="text-center text-muted-foreground mb-12">
+            Estimez le coût pour votre organisation en temps réel
           </p>
 
-          <Card className="border-2 border-foreground">
-            <CardContent className="pt-6 space-y-6">
-              <div>
-                <Label className="text-base font-bold">Nombre de collaborateurs</Label>
-                <div className="flex items-center gap-4 mt-4">
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Slider et visualisation */}
+            <Card className="border-2 border-foreground">
+              <CardContent className="pt-6 space-y-8">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <Label className="text-base font-bold">Nombre de collaborateurs</Label>
+                    <div className="flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-full">
+                      <Users className="h-4 w-4" />
+                      <span className="font-bold text-lg">{employeeCount[0]}</span>
+                    </div>
+                  </div>
                   <Slider
                     value={employeeCount}
                     onValueChange={setEmployeeCount}
                     max={500}
                     min={5}
                     step={5}
-                    className="flex-1"
+                    className="mt-6"
                   />
-                  <span className="font-bold text-lg w-16 text-right">{employeeCount[0]}</span>
+                  <div className="flex justify-between text-xs text-muted-foreground mt-2">
+                    <span>5</span>
+                    <span>100</span>
+                    <span>250</span>
+                    <span>500</span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="p-6 bg-muted/50 rounded-lg text-center">
-                <p className="text-sm text-muted-foreground mb-2">Estimation</p>
-                <div className="text-4xl font-bold">{estimatedPrice.toLocaleString()}€</div>
-                <p className="text-sm text-muted-foreground mt-2">
-                  soit {(estimatedPrice / employeeCount[0]).toFixed(0)}€ par collaborateur
-                </p>
-              </div>
+                {/* Paliers de tarifs */}
+                <div className="space-y-3">
+                  <p className="text-sm font-medium text-muted-foreground">Votre palier tarifaire</p>
+                  <div className="grid grid-cols-4 gap-2">
+                    {[
+                      { max: 10, price: 25, label: "1-10" },
+                      { max: 50, price: 20, label: "11-50" },
+                      { max: 200, price: 15, label: "51-200" },
+                      { max: 500, price: 12, label: "201+" },
+                    ].map((tier, i) => {
+                      const isActive = 
+                        (tier.max === 10 && employeeCount[0] <= 10) ||
+                        (tier.max === 50 && employeeCount[0] > 10 && employeeCount[0] <= 50) ||
+                        (tier.max === 200 && employeeCount[0] > 50 && employeeCount[0] <= 200) ||
+                        (tier.max === 500 && employeeCount[0] > 200);
+                      return (
+                        <div 
+                          key={i}
+                          className={`p-3 rounded-lg border-2 text-center transition-all ${
+                            isActive 
+                              ? "border-primary bg-primary/10" 
+                              : "border-foreground/20 opacity-50"
+                          }`}
+                        >
+                          <div className={`text-lg font-bold ${isActive ? "text-primary" : ""}`}>
+                            {tier.price}€
+                          </div>
+                          <div className="text-xs text-muted-foreground">{tier.label}</div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Barre de progression visuelle */}
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Économies réalisées</span>
+                    <span className="font-bold text-green-600">
+                      -{((25 - (estimatedPrice / employeeCount[0])) / 25 * 100).toFixed(0)}%
+                    </span>
+                  </div>
+                  <div className="h-3 bg-muted rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-gradient-to-r from-primary to-green-500 rounded-full transition-all duration-500"
+                      style={{ width: `${Math.min(100, (employeeCount[0] / 500) * 100)}%` }}
+                    />
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    Plus vous ajoutez de collaborateurs, plus le tarif unitaire diminue
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Récapitulatif prix */}
+            <div className="space-y-6">
+              <Card className="border-2 border-foreground bg-primary text-primary-foreground">
+                <CardContent className="pt-6 space-y-4">
+                  <div className="text-center">
+                    <p className="text-primary-foreground/80 text-sm mb-2">Budget total estimé</p>
+                    <div className="text-5xl font-bold">{estimatedPrice.toLocaleString()}€</div>
+                    <p className="text-primary-foreground/80 text-sm mt-2">
+                      pour {employeeCount[0]} collaborateurs
+                    </p>
+                  </div>
+                  
+                  <div className="border-t border-primary-foreground/20 pt-4 mt-4">
+                    <div className="flex justify-between items-center">
+                      <span className="text-primary-foreground/80">Prix unitaire</span>
+                      <span className="text-2xl font-bold">
+                        {(estimatedPrice / employeeCount[0]).toFixed(0)}€
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Comparaison économies */}
+              <Card className="border-2 border-foreground">
+                <CardContent className="pt-6">
+                  <h4 className="font-bold mb-4 flex items-center gap-2">
+                    <BarChart3 className="h-5 w-5" />
+                    Comparaison
+                  </h4>
+                  <div className="space-y-4">
+                    <div>
+                      <div className="flex justify-between text-sm mb-1">
+                        <span className="text-muted-foreground">Prix sans remise</span>
+                        <span className="line-through text-muted-foreground">
+                          {(employeeCount[0] * 25).toLocaleString()}€
+                        </span>
+                      </div>
+                      <div className="h-2 bg-muted rounded-full" />
+                    </div>
+                    <div>
+                      <div className="flex justify-between text-sm mb-1">
+                        <span className="font-medium">Votre prix</span>
+                        <span className="font-bold text-green-600">
+                          {estimatedPrice.toLocaleString()}€
+                        </span>
+                      </div>
+                      <div className="h-2 bg-green-500 rounded-full" 
+                        style={{ width: `${(estimatedPrice / (employeeCount[0] * 25)) * 100}%` }} 
+                      />
+                    </div>
+                    <div className="p-3 bg-green-50 dark:bg-green-950 rounded-lg border border-green-200 dark:border-green-800">
+                      <p className="text-sm text-green-700 dark:text-green-300 font-medium text-center">
+                        💰 Vous économisez {((employeeCount[0] * 25) - estimatedPrice).toLocaleString()}€
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
 
               <p className="text-xs text-muted-foreground text-center">
                 Prix indicatif. Le tarif final dépend de vos besoins spécifiques.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </section>
 
