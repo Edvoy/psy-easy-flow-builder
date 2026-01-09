@@ -17,7 +17,7 @@ export function Footer() {
     pros: [
       { label: "Bases scientifiques", href: "/pros#bases-scientifiques" },
       { label: "Avantages", href: "/pros#avantages" },
-      { label: "Estimation des prix", href: "/pros#estimation-prix" },
+      { label: "Réseau partenaires", href: "/pros#reseau-partenaires" },
     ],
     aides: [
       { label: "FAQ", href: "/faq" },
