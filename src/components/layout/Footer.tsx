@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logoImg from "@/assets/logo-psyeasy.png";
 
 export function Footer() {
   const footerLinks = {
@@ -122,9 +123,7 @@ export function Footer() {
         {/* Bottom section */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">P</span>
-            </div>
+            <img src={logoImg} alt="Psy-Easy" className="h-8 w-auto" />
             <span className="text-sm text-muted-foreground">
               ©2025-2026 Psy-Easy
             </span>
