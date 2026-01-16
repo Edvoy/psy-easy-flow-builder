@@ -86,7 +86,7 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
                   <Link to="/particuliers" className="cursor-pointer">Particuliers</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/pros" className="cursor-pointer">Professionnels</Link>
+                  <Link to="/pros" className="cursor-pointer">Partenaires</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link to="/entreprises" className="cursor-pointer">Entreprises</Link>
@@ -205,7 +205,7 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
                     className="block py-2 px-3 hover:bg-muted rounded-lg transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Professionnels
+                    Partenaires
                   </Link>
                   <Link
                     to="/entreprises"
