@@ -24,9 +24,9 @@ export function Footer() {
       { label: "Témoignages", href: "/temoignages" },
     ],
     apropos: [
-      { label: "Philosophie", href: "/philosophie" },
-      { label: "Équipe", href: "/equipe" },
-      { label: "Recherche", href: "/recherche" },
+      { label: "Notre philosophie", href: "/a-propos#philosophie" },
+      { label: "Notre équipe", href: "/a-propos#equipe" },
+      { label: "Nos recherches", href: "/a-propos#recherches" },
     ],
   };
 
