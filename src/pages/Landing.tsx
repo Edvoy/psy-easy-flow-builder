@@ -37,7 +37,7 @@ export default function Landing() {
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
-                <Link to="/articles">
+                <Link to="/a-propos">
                   <Button variant="outline" size="lg" className="w-full sm:w-auto">
                     En savoir plus
                   </Button>

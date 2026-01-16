@@ -42,6 +42,7 @@ import Temoignages from "./pages/Temoignages";
 import Termes from "./pages/Termes";
 import Confidentialite from "./pages/Confidentialite";
 import Accessibilite from "./pages/Accessibilite";
+import APropos from "./pages/APropos";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -92,6 +93,7 @@ const App = () => (
           <Route path="/termes" element={<Termes />} />
           <Route path="/confidentialite" element={<Confidentialite />} />
           <Route path="/accessibilite" element={<Accessibilite />} />
+          <Route path="/a-propos" element={<APropos />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
