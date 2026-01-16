@@ -32,9 +32,6 @@ import ProProfil from "./pages/pro/Profil";
 import ProClients from "./pages/pro/Clients";
 import ProRessources from "./pages/pro/Ressources";
 import ProParametres from "./pages/pro/Parametres";
-import Philosophie from "./pages/Philosophie";
-import Equipe from "./pages/Equipe";
-import Recherche from "./pages/Recherche";
 import Roadmap from "./pages/Roadmap";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
@@ -83,9 +80,6 @@ const App = () => (
           <Route path="/pro/clients" element={<ProClients />} />
           <Route path="/pro/ressources" element={<ProRessources />} />
           <Route path="/pro/parametres" element={<ProParametres />} />
-          <Route path="/philosophie" element={<Philosophie />} />
-          <Route path="/equipe" element={<Equipe />} />
-          <Route path="/recherche" element={<Recherche />} />
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
