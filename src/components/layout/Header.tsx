@@ -62,7 +62,7 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
               to="/articles"
               className={`nav-link ${isActive("/articles") ? "nav-link-active" : ""}`}
             >
-              Comprendre
+              Se comprendre
             </Link>
 
             {/* Valoriser dropdown */}
@@ -75,7 +75,7 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
                       : ""
                   }`}
                 >
-                  Valoriser
+                  Se valoriser
                   <svg className="w-3 h-3 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
@@ -188,10 +188,10 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
                 className="py-3 px-4 rounded-lg font-medium hover:bg-muted transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Comprendre
+                Se comprendre
               </Link>
               <div className="py-3 px-4 rounded-lg border border-border">
-                <span className="font-medium text-muted-foreground">Valoriser</span>
+                <span className="font-medium text-muted-foreground">Se valoriser</span>
                 <div className="mt-2 space-y-1">
                   <Link
                     to="/particuliers"
