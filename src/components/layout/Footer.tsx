@@ -13,10 +13,10 @@ export function Footer() {
       { label: "Rapport professionnel", href: "/entreprises#rapport" },
       { label: "Demander une démo", href: "/entreprises#demo-form" },
     ],
-    pros: [
-      { label: "Bases scientifiques", href: "/pros#bases-scientifiques" },
-      { label: "Avantages", href: "/pros#avantages" },
-      { label: "Réseau partenaires", href: "/pros#reseau-partenaires" },
+    partenaires: [
+      { label: "Pourquoi devenir partenaire", href: "/pros#avantages" },
+      { label: "Comment ça marche", href: "/pros#bases-scientifiques" },
+      { label: "Devenir partenaire", href: "/pros#devenir-partenaire" },
     ],
     aides: [
       { label: "FAQ", href: "/faq" },
@@ -68,11 +68,11 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Pros */}
+          {/* Partenaires */}
           <div>
-            <h3 className="font-semibold mb-4 text-foreground">Professionnels</h3>
+            <h3 className="font-semibold mb-4 text-foreground">Partenaires</h3>
             <ul className="space-y-2">
-              {footerLinks.pros.map((link) => (
+              {footerLinks.partenaires.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
