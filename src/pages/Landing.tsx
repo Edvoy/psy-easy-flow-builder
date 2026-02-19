@@ -203,7 +203,7 @@ export default function Landing() {
             type: "lightbulb" as const,
             variant: "teal" as const,
             title: "Clarté",
-            description: "Des explications accessibles, sans jargon, pour vraiment comprendre."
+            description: "Des explications accessibles pour se vraiment comprendre."
           },
           {
             type: "heart" as const,
