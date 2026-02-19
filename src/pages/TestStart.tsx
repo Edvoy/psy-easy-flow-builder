@@ -64,7 +64,7 @@ export default function TestStart() {
             <div>
               <p className="font-medium mb-1">Important</p>
               <p className="text-sm">
-                Cet outil est un outil d'orientation et ne remplace pas un avis professionnel. 
+                Ce test est un outil d'orientation et ne remplace pas un avis professionnel. 
                 Les résultats fournis sont des indicateurs et non un diagnostic médical.
               </p>
             </div>
