@@ -144,7 +144,7 @@ export default function TestStart() {
           </div>
 
           <p className="text-center text-xs text-muted-foreground">
-            Durée estimée : 10-15 minutes • Aliqu Utlabore
+            Durée estimée : 10-15 minutes • Test & Compte rendu
           </p>
         </div>
       </div>
