@@ -209,7 +209,7 @@ export default function Landing() {
             type: "heart" as const,
             variant: "pink" as const,
             title: "Douceur",
-            description: "Des pistes, pas des verdicts. Vous restez maître de votre parcours."
+            description: "Des pistes, pas de diagnostiques. Découvrez vous à votre rythme."
           }].
           map((value, i) =>
           <div key={i} className="text-center space-y-4">
