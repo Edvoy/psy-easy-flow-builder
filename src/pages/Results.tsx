@@ -161,16 +161,6 @@ export default function Results() {
           
           {/* Score Overview */}
           <div className="wireframe-card mb-8">
-            <div className="flex flex-wrap justify-center gap-4 mb-6">
-              {resultAxes.map((axis) => (
-                <div key={axis.id} className="text-center">
-                  <div className="w-16 h-16 rounded-full border-4 border-foreground flex items-center justify-center mb-2">
-                    <span className="text-lg font-bold">{axis.score}</span>
-                  </div>
-                  <p className="text-sm font-medium">{axis.name}</p>
-                </div>
-              ))}
-            </div>
             
             {/* Profile Summary - More detailed */}
             <div className="p-6 bg-accent/30 rounded-lg">
