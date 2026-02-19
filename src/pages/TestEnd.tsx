@@ -128,9 +128,6 @@ export default function TestEnd() {
                   <Label htmlFor="email" className="text-base font-bold">
                     Votre email
                   </Label>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Cul enim eacommo ve conse con irur eius in sinto essecillumd volupta.
-                  </p>
                 </div>
                 <Input
                   id="email"
