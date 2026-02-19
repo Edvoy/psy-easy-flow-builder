@@ -29,7 +29,7 @@ export default function TestStart() {
           />
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Test cognitif</h1>
           <p className="text-muted-foreground">
-            Découvrez votre profil cognitif en quelques minutes
+            Comprenez vos singularités et découvrez vos talents cachés
           </p>
         </div>
 
