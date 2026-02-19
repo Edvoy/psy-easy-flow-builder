@@ -77,7 +77,7 @@ export default function TestStart() {
               {[
                 "Indice de présence de TND (en savoir plus)",
                 "Vos potentiels inexploités",
-                "Sedd enim invo mini volu eiusmodtemp eni ven utenim veniamqu eius nostrude minim.",
+                "Des recommandations concrètes pour renforcer votre alignement personnel.",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <Check className="h-5 w-5 flex-shrink-0 mt-0.5" />
