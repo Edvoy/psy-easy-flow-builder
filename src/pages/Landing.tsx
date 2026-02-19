@@ -93,7 +93,7 @@ export default function Landing() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
           {
             title: "HPI",
@@ -112,6 +112,12 @@ export default function Landing() {
             subtitle: "Spectre de l'Autisme",
             description: "Pensée en détails, intérêts profonds, besoin de prévisibilité.",
             color: "bg-mint/30 border-mint/50"
+          },
+          {
+            title: "Dys",
+            subtitle: "Troubles Dys",
+            description: "Dyslexie, dyscalculie, dyspraxie : des modes d'apprentissage différents et des talents uniques.",
+            color: "bg-soft-pink/30 border-soft-pink/50"
           }].
           map((type, i) =>
           <div
