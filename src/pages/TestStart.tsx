@@ -122,7 +122,7 @@ export default function TestStart() {
                   J'accepte de participer à la recherche *
                 </label>
                 <p className="text-sm text-muted-foreground mt-1">
-                  <span className="font-medium" style={{ color: 'rgb(255, 137, 148)' }}>C'est ce qui rend le test gratuit.</span>{" "}
+                  <span className="font-medium" style={{ color: 'rgb(255, 137, 148)' }}>Obtenez gratuitement une synthèse de vos résultats.</span>{" "}
                   Vos données anonymisées seront utilisées pour améliorer nos outils et faire avancer la recherche.
                 </p>
               </div>
