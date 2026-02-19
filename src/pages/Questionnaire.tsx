@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Slider } from "@/components/ui/slider";
 import { ArrowRight } from "lucide-react";
+import pictoQuestionnaire from "@/assets/picto-questionnaire.png";
 
 interface Question {
   id: number;
@@ -114,6 +115,7 @@ export default function Questionnaire() {
           <div className="max-w-2xl w-full space-y-8">
             {/* Question */}
             <div className="text-center space-y-4">
+              <img src={pictoQuestionnaire} alt="" className="w-16 h-16 mx-auto" />
               <h2 className="text-2xl md:text-3xl font-bold">{question.text}</h2>
             </div>
 
