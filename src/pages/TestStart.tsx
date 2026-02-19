@@ -123,7 +123,7 @@ export default function TestStart() {
                 </label>
                 <p className="text-sm text-muted-foreground mt-1">
                   <span className="font-medium" style={{ color: 'rgb(255, 137, 148)' }}>Obtenez gratuitement une synthèse de vos résultats.</span>{" "}
-                  Vos données anonymisées seront utilisées pour améliorer nos outils et faire avancer la recherche.
+                  Vos données anonymisées seront uniquement utilisées pour améliorer nos outils et faire avancer la recherche.
                 </p>
               </div>
             </div>
