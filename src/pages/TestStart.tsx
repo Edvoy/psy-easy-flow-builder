@@ -27,7 +27,7 @@ export default function TestStart() {
             alt="Illustration du test cognitif" 
             className="w-40 h-40 mx-auto mb-6 rounded-2xl object-cover"
           />
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Test TDA & HPI</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">Test cognitif</h1>
           <p className="text-muted-foreground">
             Découvrez votre profil cognitif en quelques minutes
           </p>
