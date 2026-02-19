@@ -76,7 +76,7 @@ export default function TestStart() {
             <ul className="space-y-3">
               {[
                 "Indice de présence de TND (en savoir plus)",
-                "Doeiu lab ulla temporincid null doeiusmodt cil conse co labo cill.",
+                "Vos potentiels inexploités",
                 "Sedd enim invo mini volu eiusmodtemp eni ven utenim veniamqu eius nostrude minim.",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
