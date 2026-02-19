@@ -104,7 +104,7 @@ export default function TestStart() {
                   J'accepte les conditions d'utilisation du service *
                 </label>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Requis pour utiliser le service. Vos données sont traitées conformément à notre politique de confidentialité.
+                  Requis pour utiliser le service. Vos données sont traitées conformément à <Link to="/confidentialite" className="underline hover:text-foreground">notre politique de confidentialité</Link>.
                 </p>
               </div>
             </div>
