@@ -70,7 +70,7 @@ export default function Landing() {
         <div className="container py-12">
           <div className="grid grid-cols-3 gap-8 text-center">
             {[
-            { value: "130K+", label: "Profils analysés" },
+            { value: "200+", label: "Profils analysés" },
             { value: "91%", label: "Satisfaction" },
             { value: "5", label: "Axes évalués" }].
             map((stat, i) =>
