@@ -47,19 +47,19 @@ export default function Landing() {
               {/* Disclaimer */}
               <div className="disclaimer-box flex items-start gap-3">
                 <Info className="h-5 w-5 flex-shrink-0 mt-0.5 text-info" />
-                <p className="text-small">
-                  Cet outil propose des pistes de réflexion et ne remplace pas un avis professionnel qualifié.
+                <p className="text-small">Cet outil propose des pistes de réflexion et ne remplace pas un diagnostic professionnel.
+
                 </p>
               </div>
             </div>
 
             {/* Hero visual */}
             <div className="relative hidden lg:block">
-              <img 
-                src={heroBrainImg} 
-                alt="Illustration représentant la diversité cognitive" 
-                className="w-full max-w-lg mx-auto rounded-3xl shadow-lg"
-              />
+              <img
+                src={heroBrainImg}
+                alt="Illustration représentant la diversité cognitive"
+                className="w-full max-w-lg mx-auto rounded-3xl shadow-lg" />
+
             </div>
           </div>
         </div>
@@ -70,16 +70,16 @@ export default function Landing() {
         <div className="container py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "130K+", label: "Profils analysés" },
-              { value: "500+", label: "Praticiens partenaires" },
-              { value: "91%", label: "Satisfaction" },
-              { value: "5", label: "Axes évalués" },
-            ].map((stat, i) => (
-              <div key={i} className="space-y-2">
+            { value: "130K+", label: "Profils analysés" },
+            { value: "500+", label: "Praticiens partenaires" },
+            { value: "91%", label: "Satisfaction" },
+            { value: "5", label: "Axes évalués" }].
+            map((stat, i) =>
+            <div key={i} className="space-y-2">
                 <div className="text-h2 font-bold text-brand-blue">{stat.value}</div>
                 <div className="text-small text-muted-foreground">{stat.label}</div>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -96,29 +96,29 @@ export default function Landing() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { 
-              title: "HPI", 
-              subtitle: "Haut Potentiel Intellectuel",
-              description: "Pensée rapide, sensibilité accrue, besoin de stimulation intellectuelle.",
-              color: "bg-teal/10 border-teal/30"
-            },
-            { 
-              title: "TDA/TDAH", 
-              subtitle: "Attention & Hyperactivité",
-              description: "Créativité, énergie, pensée divergente et recherche de nouveauté.",
-              color: "bg-brand-blue/10 border-brand-blue/30"
-            },
-            { 
-              title: "TSA", 
-              subtitle: "Spectre de l'Autisme",
-              description: "Pensée en détails, intérêts profonds, besoin de prévisibilité.",
-              color: "bg-mint/30 border-mint/50"
-            },
-          ].map((type, i) => (
-            <div 
-              key={i} 
-              className={`psy-card ${type.color} border hover:shadow-md transition-all`}
-            >
+          {
+            title: "HPI",
+            subtitle: "Haut Potentiel Intellectuel",
+            description: "Pensée rapide, sensibilité accrue, besoin de stimulation intellectuelle.",
+            color: "bg-teal/10 border-teal/30"
+          },
+          {
+            title: "TDA/TDAH",
+            subtitle: "Attention & Hyperactivité",
+            description: "Créativité, énergie, pensée divergente et recherche de nouveauté.",
+            color: "bg-brand-blue/10 border-brand-blue/30"
+          },
+          {
+            title: "TSA",
+            subtitle: "Spectre de l'Autisme",
+            description: "Pensée en détails, intérêts profonds, besoin de prévisibilité.",
+            color: "bg-mint/30 border-mint/50"
+          }].
+          map((type, i) =>
+          <div
+            key={i}
+            className={`psy-card ${type.color} border hover:shadow-md transition-all`}>
+
               <div className="inline-block px-3 py-1 bg-foreground/5 rounded-lg text-sm font-semibold mb-3">
                 {type.title}
               </div>
@@ -128,7 +128,7 @@ export default function Landing() {
                 Comprendre ce profil <ArrowRight className="h-3 w-3" />
               </Link>
             </div>
-          ))}
+          )}
         </div>
       </section>
 
@@ -136,11 +136,11 @@ export default function Landing() {
       <section className="bg-muted/30 border-y border-border">
         <div className="container section-padding">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <img 
-              src={entreprisesTeamImg} 
-              alt="Équipe collaborant avec diversité cognitive" 
-              className="rounded-2xl w-full shadow-md"
-            />
+            <img
+              src={entreprisesTeamImg}
+              alt="Équipe collaborant avec diversité cognitive"
+              className="rounded-2xl w-full shadow-md" />
+
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-blue/10 rounded-full text-sm font-medium text-brand-blue">
                 Pour les entreprises
@@ -155,16 +155,16 @@ export default function Landing() {
               </p>
               <ul className="space-y-3">
                 {[
-                  "Vue agrégée des profils d'équipe",
-                  "Aucun diagnostic individuel",
-                  "Kits managers et ressources",
-                  "Ateliers personnalisés",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3">
+                "Vue agrégée des profils d'équipe",
+                "Aucun diagnostic individuel",
+                "Kits managers et ressources",
+                "Ateliers personnalisés"].
+                map((item, i) =>
+                <li key={i} className="flex items-center gap-3">
                     <BrandIcon type="check" size="sm" variant="teal" className="w-5 h-5" />
                     <span className="text-small">{item}</span>
                   </li>
-                ))}
+                )}
               </ul>
               <Link to="/entreprises">
                 <Button variant="outline" className="gap-2">
@@ -188,33 +188,33 @@ export default function Landing() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            {
-              type: "shield" as const,
-              variant: "primary" as const,
-              title: "Sérénité",
-              description: "Un espace sécurisé et bienveillant, loin de toute stigmatisation.",
-            },
-            {
-              type: "lightbulb" as const,
-              variant: "teal" as const,
-              title: "Clarté",
-              description: "Des explications accessibles, sans jargon, pour vraiment comprendre.",
-            },
-            {
-              type: "heart" as const,
-              variant: "pink" as const,
-              title: "Douceur",
-              description: "Des pistes, pas des verdicts. Vous restez maître de votre parcours.",
-            },
-          ].map((value, i) => (
-            <div key={i} className="text-center space-y-4">
+          {
+            type: "shield" as const,
+            variant: "primary" as const,
+            title: "Sérénité",
+            description: "Un espace sécurisé et bienveillant, loin de toute stigmatisation."
+          },
+          {
+            type: "lightbulb" as const,
+            variant: "teal" as const,
+            title: "Clarté",
+            description: "Des explications accessibles, sans jargon, pour vraiment comprendre."
+          },
+          {
+            type: "heart" as const,
+            variant: "pink" as const,
+            title: "Douceur",
+            description: "Des pistes, pas des verdicts. Vous restez maître de votre parcours."
+          }].
+          map((value, i) =>
+          <div key={i} className="text-center space-y-4">
               <div className="w-16 h-16 mx-auto rounded-2xl bg-secondary flex items-center justify-center">
                 <BrandIcon type={value.type} size="lg" variant={value.variant} />
               </div>
               <h3 className="text-h3">{value.title}</h3>
               <p className="text-small text-muted-foreground">{value.description}</p>
             </div>
-          ))}
+          )}
         </div>
       </section>
 
@@ -232,27 +232,27 @@ export default function Landing() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              {
-                text: "Enfin un outil qui m'a aidé à comprendre mon fonctionnement sans me coller une étiquette. Les pistes proposées sont vraiment utiles.",
-                name: "Marie D.",
-                role: "Utilisatrice Premium",
-              },
-              {
-                text: "J'ai pu préparer ma consultation avec mon psychologue grâce au rapport. Un vrai gain de temps et de clarté.",
-                name: "Thomas L.",
-                role: "Parent concerné",
-              },
-              {
-                text: "L'approche bienveillante m'a permis d'aborder le sujet sereinement. Je recommande à tous ceux qui se posent des questions.",
-                name: "Sophie M.",
-                role: "Enseignante",
-              },
-            ].map((testimonial, i) => (
-              <div key={i} className="psy-card">
+            {
+              text: "Enfin un outil qui m'a aidé à comprendre mon fonctionnement sans me coller une étiquette. Les pistes proposées sont vraiment utiles.",
+              name: "Marie D.",
+              role: "Utilisatrice Premium"
+            },
+            {
+              text: "J'ai pu préparer ma consultation avec mon psychologue grâce au rapport. Un vrai gain de temps et de clarté.",
+              name: "Thomas L.",
+              role: "Parent concerné"
+            },
+            {
+              text: "L'approche bienveillante m'a permis d'aborder le sujet sereinement. Je recommande à tous ceux qui se posent des questions.",
+              name: "Sophie M.",
+              role: "Enseignante"
+            }].
+            map((testimonial, i) =>
+            <div key={i} className="psy-card">
                 <div className="flex gap-1 mb-4">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star key={star} className="h-4 w-4 fill-teal text-teal" />
-                  ))}
+                  {[1, 2, 3, 4, 5].map((star) =>
+                <Star key={star} className="h-4 w-4 fill-teal text-teal" />
+                )}
                 </div>
                 <p className="text-small text-muted-foreground mb-4 italic">
                   "{testimonial.text}"
@@ -267,7 +267,7 @@ export default function Landing() {
                   </div>
                 </div>
               </div>
-            ))}
+            )}
           </div>
 
           <div className="text-center mt-12">
@@ -280,6 +280,6 @@ export default function Landing() {
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>);
+
 }
