@@ -22,7 +22,7 @@ export default function Landing() {
               
               <h1 className="text-h1 md:text-display text-foreground">
                 Cultivez vos{" "}
-                <span className="text-brand-blue">talents cachés</span>
+                <span className="text-pink">talents cachés</span>
               </h1>
               
               <p className="text-body-lg text-muted-foreground max-w-lg">
