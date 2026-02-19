@@ -49,7 +49,7 @@ export default function TestStart() {
                 >
                   {step.num}
                 </div>
-                <div className="text-xs font-medium max-w-24">{step.label}</div>
+                <div className="text-xs font-medium max-w-24 min-h-[2lh]">{step.label}</div>
               </div>
               {i < 2 && <div className="w-12 h-0.5 bg-border" />}
             </div>
