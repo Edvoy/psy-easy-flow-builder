@@ -72,7 +72,7 @@ export default function Landing() {
             {[
             { value: "200+", label: "Profils analysés" },
             { value: "91%", label: "Satisfaction" },
-            { value: "5", label: "Axes évalués" }].
+            { value: "5", label: "Critères évalués" }].
             map((stat, i) =>
             <div key={i} className="space-y-2">
                 <div className="text-h2 font-bold text-brand-blue">{stat.value}</div>
