@@ -4,7 +4,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Slider } from "@/components/ui/slider";
-import { ArrowRight, Save } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface Question {
   id: number;
@@ -108,17 +108,6 @@ export default function Questionnaire() {
   return (
     <Layout hideFooter>
       <div className="min-h-[calc(100vh-4rem)] flex flex-col">
-        {/* Header */}
-        <div className="border-b-2 border-foreground bg-background sticky top-16 z-40">
-          <div className="container py-4">
-            <div className="flex items-center justify-end">
-              <Button variant="ghost" size="sm" className="gap-2">
-                <Save className="h-4 w-4" />
-                Sauvegarder
-              </Button>
-            </div>
-          </div>
-        </div>
 
         {/* Question Content */}
         <div className="flex-1 container py-12 flex flex-col items-center justify-center">
