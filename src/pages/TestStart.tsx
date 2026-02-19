@@ -75,7 +75,7 @@ export default function TestStart() {
             <h2 className="text-xl font-bold mb-4">Ce que vous allez découvrir</h2>
             <ul className="space-y-3">
               {[
-                "Ad proident nul mollit inculpaq in dolo rep exea utlaboreetd cupi.",
+                "Indice de présence de TND (en savoir plus)",
                 "Doeiu lab ulla temporincid null doeiusmodt cil conse co labo cill.",
                 "Sedd enim invo mini volu eiusmodtemp eni ven utenim veniamqu eius nostrude minim.",
               ].map((item, i) => (
