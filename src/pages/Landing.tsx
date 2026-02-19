@@ -68,10 +68,9 @@ export default function Landing() {
       {/* Stats Section */}
       <section className="border-y border-border bg-muted/30">
         <div className="container py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-3 gap-8 text-center">
             {[
             { value: "130K+", label: "Profils analysés" },
-            { value: "500+", label: "Praticiens partenaires" },
             { value: "91%", label: "Satisfaction" },
             { value: "5", label: "Axes évalués" }].
             map((stat, i) =>
