@@ -187,7 +187,7 @@ export default function Landing() {
         <div className="text-center mb-12">
           <h2 className="text-h2 mb-4">Notre approche</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Une démarche bienveillante, fondée sur la science, pour vous aider à mieux vous comprendre.
+            Une démarche bienveillante, fondée sur les neurosciences cognitives, pour vous aider à mieux vous comprendre.
           </p>
         </div>
 
