@@ -254,10 +254,6 @@ export default function Landing() {
             }].
             map((testimonial, i) =>
             <div key={i} className="psy-card">
-                <div className="flex gap-1 mb-4">
-                  {[1, 2, 3, 4, 5].map((star) =>
-                <Star key={star} className="h-4 w-4 fill-teal text-teal" />
-                )}
                 </div>
                 <p className="text-small text-muted-foreground mb-4 italic">
                   "{testimonial.text}"
