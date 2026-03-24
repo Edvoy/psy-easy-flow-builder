@@ -44,7 +44,7 @@ export default function Contact() {
                 <Phone className="h-6 w-6 mt-1" />
                 <div>
                   <h3 className="font-semibold">Téléphone</h3>
-                  <p className="text-muted-foreground">+33 1 23 45 67 89</p>
+                  <p className="text-muted-foreground">+33 6 50 88 76 10</p>
                 </div>
               </div>
 
