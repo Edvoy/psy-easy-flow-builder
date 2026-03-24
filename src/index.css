@@ -158,7 +158,10 @@
     box-shadow: 0 8px 24px -8px hsl(var(--foreground) / 0.1);
   }
 
-  /* Disclaimer/Info banner */
+  /* Wireframe card */
+  .wireframe-card {
+    @apply bg-card rounded-xl border border-border p-6;
+  }
   .disclaimer-box {
     @apply bg-info/10 border border-info/30 p-4 rounded-xl text-sm;
   }
