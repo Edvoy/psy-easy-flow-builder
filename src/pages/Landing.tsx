@@ -254,7 +254,6 @@ export default function Landing() {
             }].
             map((testimonial, i) =>
             <div key={i} className="psy-card">
-                </div>
                 <p className="text-small text-muted-foreground mb-4 italic">
                   "{testimonial.text}"
                 </p>
