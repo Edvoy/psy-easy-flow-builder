@@ -171,7 +171,7 @@ export default function Landing() {
                   </li>
                 )}
               </ul>
-              <Link to="/entreprises">
+              <Link to="/entreprises" className="inline-block mt-4">
                 <Button variant="outline" className="gap-2">
                   Découvrir l'offre entreprises
                   <ArrowRight className="h-4 w-4" />
