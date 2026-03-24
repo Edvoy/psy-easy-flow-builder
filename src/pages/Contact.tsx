@@ -53,8 +53,8 @@ export default function Contact() {
                 <div>
                   <h3 className="font-semibold">Adresse</h3>
                   <p className="text-muted-foreground">
-                    123 Avenue de la Cognition<br />
-                    75001 Paris, France
+                    9 Rue Raoul Dautry<br />
+                    91190 Gif-sur-Yvette
                   </p>
                 </div>
               </div>
