@@ -100,7 +100,7 @@ export default function Particuliers() {
               POPULAIRE
             </div>
             <h3 className="text-xl font-bold mb-2">Premium</h3>
-            <div className="text-3xl font-bold mb-4">12€</div>
+            <div className="text-3xl font-bold mb-4">15€</div>
             <ul className="space-y-3 mb-6">
               {[
                 "Tout le gratuit inclus",
